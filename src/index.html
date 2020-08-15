@@ -10,17 +10,42 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href="" type="image/x-icon">
   <title>NewsExplorer</title>
+  <link rel="stylesheet" href="./vendor/normalize.css" class="s">
   <link rel="stylesheet" href="./pages/index.css" class="s">
 </head>
 <body>
 <div class="root">
-  <header class="header root__section">
-    <div class="header__nav"></div>
-    <div class="header__search">hello search</div>
-  </header>
 
-  <div class="articles root__section">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa, dolor error facilis hic neque nihil nisi numquam odio praesentium qui quo reiciendis, reprehenderit, sequi veniam voluptas voluptatibus. Distinctio, quisquam.</div>
-  <footer class="footer root__section"></footer>
+  <div class="header-area header-area_theme_dark root__header">
+    <header class="header">
+      <a href="" class="header__logo">NewsExplorer</a>
+        <ul class="nav nav_place_header">
+          <li class="nav__item">
+            <a href=" " class="nav__link nav__link_type_underline">Главная</a>
+          </li>
+          <li class="nav__item">
+            <div class="button button_theme_dark button_size_m">
+              <a href=" " class="nav__link">Авторизоваться</a>
+            </div>
+          </li>
+        </ul>
+    </header>
+    <div class="search header-area__search">
+      <div class="search__container">
+        <h1 class="title title_size_l search__title">Что в мире творится?</h1>
+        <p class="subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своем личном кабинете.</p>
+        <form action="" class="search__form" name="search">
+          <input type="text" class="search__input" placeholder="Введите тему новости" id="newsSearch">
+          <button class="button button_state_active button_size_s search__button">Искать</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="articles root__section">Lorem ilis hic neque nih.</div>
+  <footer class="footer root__section">footer</footer>
 </div>
 
 

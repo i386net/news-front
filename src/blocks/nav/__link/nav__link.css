@@ -1,0 +1,9 @@
+@import url('./type/underline/nav__link_type_underline.css');
+
+.nav__link {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+}

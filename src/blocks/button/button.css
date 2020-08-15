@@ -1,0 +1,18 @@
+@import url('./theme/dark/button_theme_dark.css');
+@import url('./theme/light/button_theme_light.css');
+@import url('./size/xs/button_size_xs.css');
+@import url('./size/s/button_size_s.css');
+@import url('./size/m/button_size_m.css');
+@import url('./size/l/button_size_l.css');
+@import url('./size/xl/button_size_xl.css');
+@import url('./state/active/button_state_active.css');
+@import url('./state/inactive/button_state_inactive.css');
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  box-sizing: border-box;
+}
