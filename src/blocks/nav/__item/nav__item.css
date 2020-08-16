@@ -1,6 +1,7 @@
 .nav__item {
   list-style: none;
-}
-.nav__item:last-of-type {
   margin-left: 32px;
 }
+/*.nav__item:last-of-type {*/
+/*  margin-left: 32px;*/
+/*}*/
