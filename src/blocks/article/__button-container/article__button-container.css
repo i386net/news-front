@@ -1,0 +1,11 @@
+.article__button-container {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: row;
+}
+
+.article__button-container:hover .article__button_type_alert {
+  display: flex;
+}

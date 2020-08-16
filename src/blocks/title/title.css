@@ -1,4 +1,8 @@
 @import url('./size/l/title_size_l.css');
+@import url('./size/m/title_size_m.css');
+@import url('./size/s/title_size_s.css');
+@import url('./size/xs/title_size_xs.css');
+
 
 .title {
   font-family: "Roboto Slab", Arial, serif;

@@ -1,0 +1,5 @@
+.article__img {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
