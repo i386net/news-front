@@ -1,4 +1,4 @@
-@import url('./type/underline/nav__link_type_underline.css');
+@import url('_type/underline/nav__link_type_underline.css');
 
 .nav__link {
   text-decoration: none;

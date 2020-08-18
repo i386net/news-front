@@ -1,0 +1,8 @@
+@import url(./_is/popup_text_is_inactive.css);
+
+.popup__text {
+  font-size: 14px;
+  margin-top: 16px;
+  margin-bottom: 0;
+  text-align: center;
+}

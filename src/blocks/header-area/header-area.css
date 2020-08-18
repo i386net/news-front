@@ -1,8 +1,8 @@
-@import url('./theme/dark/header-area_theme_dark.css');
+@import url('_theme/dark/header-area_theme_dark.css');
 
 .header-area {
   width: 100%;
-  background-image: url("./header__bg.png");
+  background-image: url("../../images/header__bg.png");
   background-repeat: no-repeat;
   background-size: cover;
 }

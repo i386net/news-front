@@ -49,7 +49,7 @@
       <h2 class="articles__title title title_size_m">Результаты поиска</h2>
       <div class="articles__grid">
         <div class="article">
-          <img src="./blocks/article/__img/card.png" alt="На картинке изображены растения" class="article__img">
+          <img src="images/card.png" alt="На картинке изображены растения" class="article__img">
           <div class="article__button-container">
             <div class="article__button article__button_type_alert">
               <p class="article__button-text">Войдите, чтобы сохранить статьи</p>
@@ -66,7 +66,7 @@
           </div>
         </div>
         <div class="article">
-          <img src="./blocks/article/__img/card.png" alt="На картинке изображены растения" class="article__img">
+          <img src="images/card.png" alt="На картинке изображены растения" class="article__img">
           <div class="article__button-container">
             <div class="article__button article__button_type_alert">
               <p class="article__button-text">Войдите, чтобы сохранить статьи</p>
@@ -83,7 +83,7 @@
           </div>
         </div>
         <div class="article">
-          <img src="./blocks/article/__img/card.png" alt="На картинке изображены растения" class="article__img">
+          <img src="images/card.png" alt="На картинке изображены растения" class="article__img">
           <div class="article__button-container">
             <div class="article__button article__button_type_alert">
               <p class="article__button-text">Войдите, чтобы сохранить статьи</p>
@@ -105,8 +105,21 @@
    <a href="" class="button button_size_l button_theme_white articles__link">Показать еще</a>
   </section>
 
+  <section class="not-found">
+    <img src="./images/not-found.png" alt="Ничего не найдено" class="not-found__img">
+    <h3 class="title title_size_s">Ничего не найдено</h3>
+    <p class="subtitle subtitle_theme_light not-found__subtitle">К сожадению по вашему вопросу ничего не найдено</p>
+
+
+  </section>
+
+  <section class="preloader">
+    <i class="preloader__circle"></i>
+    <p class="subtitle subtitle_theme_light">Идет поиск новостей</p>
+  </section>
+
   <section class="author">
-    <img src="./blocks/author/__img/author1.png" alt="" class="author author_img">
+    <img src="images/author1.png" alt="" class="author author_img">
     <div class="author__text-container">
       <h2 class="title title_size_m author__title">Об авторе</h2>
       <p class="author__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.
@@ -120,10 +133,90 @@
     <ul class="nav nav_place_footer footer__nav">
       <li class="nav__item"><a href="#" class="nav__link">Главная</a></li>
       <li class="nav__item"><a href="htts://praktikum.yande.ru" class="nav__link" target="_blank">Яндекс.Практикум</a></li>
-      <li class="nav__item"><a href="#" class="nav__link" target="_blank"><img src="./blocks/footer/__ico/github.svg" alt="Github" class="nav__ico"></a></li>
-      <li class="nav__item"><a href="#" class="nav__link" target="_blank"><img src="./blocks/footer/__ico/fb.svg" alt="Facebook" class="nav__ico"></a></li>
+      <li class="nav__item"><a href="#" class="nav__link" target="_blank"><img src="images/github.svg" alt="Github" class="nav__ico"></a></li>
+      <li class="nav__item"><a href="#" class="nav__link" target="_blank"><img src="images/fb.svg" alt="Facebook" class="nav__ico"></a></li>
     </ul>
   </footer>
+
+<!--  popup -->
+<!--  to view popups add popup_is-opened -->
+
+  <div class="popup popup_type_login">
+    <div class="popup__content">
+      <img src="./blocks/popup/__close/close.svg" alt="" class="popup__close popup__close_type_login" />
+      <h3 class="popup__title">Вход</h3>
+      <form class="popup__form popup__form_avatar" name="new" novalidate>
+        <span class="popup__subtitle">Email</span>
+        <input
+          type="email"
+          name="email"
+          class="popup__input popup__input_type_email"
+          placeholder="Введите почту"
+          required
+        />
+        <span class="error-message"></span>
+        <span class="popup__subtitle">Пароль</span>
+        <input
+          type="password"
+          name="password"
+          class="popup__input popup__input_type_password"
+          placeholder="Введите пароль"
+          required
+        />
+        <span class="error-message"></span>
+        <button type="submit" class="button button_size_xl button_state_active popup__button">Войти</button>
+        <p class="popup__text">или <a href="" class="popup__link">Зарегистрироваться</a></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup popup_type_reg">
+    <div class="popup__content">
+      <img src="./blocks/popup/__close/close.svg" alt="" class="popup__close popup__close_type_reg" />
+      <h3 class="popup__title">Регистрация</h3>
+      <form class="popup__form popup__form_avatar" name="new" novalidate>
+        <span class="popup__subtitle">Email</span>
+        <input
+          type="email"
+          name="email"
+          class="popup__input popup__input_type_email"
+          placeholder="Введите почту"
+          required
+        />
+        <span id="error-email" class="error-message"></span>
+        <span class="popup__subtitle">Пароль</span>
+        <input
+          type="password"
+          name="password"
+          class="popup__input popup__input_type_password"
+          placeholder="Введите пароль"
+          required
+        />
+        <span id="error-password" class="error-message"></span>
+        <span class="popup__subtitle">Имя</span>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="popup__input popup__input_type_name"
+          placeholder="Введите имя"
+          required
+        />
+        <span id="error-name" class="error-message"></span>
+
+        <button type="submit" class="button button_size_xl button_state_inactive popup__button popup__button_is_inactive">Войти</button>
+        <p class="popup__text">или <a href="" class="popup__link">Зарегистрироваться</a></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup popup_type_reged">
+    <div class="popup__content">
+      <img src="./blocks/popup/__close/close.svg" alt="" class="popup__close popup__close_type_reg" />
+      <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+      <a href="" class="popup__link">Выполнить вход</a>
+    </div>
+  </div>
 </div>
 
 
