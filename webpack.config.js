@@ -8,10 +8,10 @@ const isDev = process.env.NODE_ENV === 'development';
 const webpack = require('webpack');
 
 module.exports = {
-  entry: { main: './src/scripts/index.js' },
+  entry: { index: './src/scripts/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js',
+    filename: './scripts/[name].[chunkhash].js',
   },
   module: {
     rules: [

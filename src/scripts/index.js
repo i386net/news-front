@@ -38,8 +38,6 @@ import '../styles/index.css';
 
   })
 
-  alert('hello');
-
   copyright.textContent = `© ${new Date().getFullYear()} Supersite, Powered by News AP`;
 
 })();
