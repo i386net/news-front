@@ -4,7 +4,9 @@
   "description": "Yandex.Praktikum Frontend part",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "NODE_ENV=production rimraf dist && webpack --mode production",
+    "dev": "NODE_ENV=development webpack-dev-server --mode development --open --watch",
+    "deploy": "NODE_ENV=production gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
   "homepage": "https://github.com/i386net/news-front#readme",
   "devDependencies": {
     "@babel/core": "7.11.1",
+    "@babel/preset-env": "7.11.0",
     "autoprefixer": "9.8.6",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.3",
