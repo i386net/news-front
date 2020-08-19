@@ -1,0 +1,10 @@
+.article__tag {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 88px;
+  height: 40px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+
+}

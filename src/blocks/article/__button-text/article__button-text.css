@@ -1,3 +1,5 @@
+@import url('./_is-dark/article__button-text_is-dark.css');
+
 .article__button-text {
   font-size: 10px;
   line-height: 11px;

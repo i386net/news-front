@@ -1,6 +1,6 @@
-@import url('_theme/dark/button_theme_dark.css');
-@import url('_theme/light/button_theme_light.css');
-@import url('_theme/white/button_theme_white.css');
+@import url('_theme/button_theme_dark.css');
+@import url('_theme/button_theme_light.css');
+@import url('_theme/button_theme_white.css');
 @import url('_size/xs/button_size_xs.css');
 @import url('_size/s/button_size_s.css');
 @import url('_size/m/button_size_m.css');
@@ -16,4 +16,5 @@
   align-items: center;
   border-radius: 100px;
   box-sizing: border-box;
+  cursor: pointer;
 }

@@ -1,15 +1,15 @@
 .article__button_type_mark {
   width: 40px;
   margin-left: 5px;
-  background-image: url("../../../../../images/normal.svg");
+  background-image: url("../../../../images/normal.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .article__button_type_mark:hover {
-  background-image: url("../../../../../images/hover.svg");
+  background-image: url("../../../../images/hover.svg");
 }
 
 .article__button_type_mark:active {
-  background-image: url("../../../../../images/marked.svg");
+  background-image: url("../../../../images/marked.svg");
 }

@@ -21,11 +21,11 @@
       <a href="" class="header__logo">NewsExplorer</a>
         <ul class="nav nav_place_header">
           <li class="nav__item">
-            <a href=" " class="nav__link nav__link_type_underline">Главная</a>
+            <a href=" " class="nav__link nav__link_theme_dark">Главная</a>
           </li>
           <li class="nav__item">
-            <div class="button button_theme_dark button_size_m">
-              <a href=" " class="nav__link">Авторизоваться</a>
+            <div id="signin" class="button button_theme_dark button_size_m">
+              <a href="#" class="nav__link">Авторизоваться</a>
             </div>
           </li>
         </ul>
@@ -44,7 +44,7 @@
   </section>
 
 
-  <section class="articles root__articles">
+  <section class="articles root__articles articles_is-opened">
     <div class="articles__container">
       <h2 class="articles__title title title_size_m">Результаты поиска</h2>
       <div class="articles__grid">
@@ -129,7 +129,7 @@
   </section>
 
   <footer class="footer root__footer">
-    <div class="footer__copyright-container">© 2020 Supersite, Powered by News API</div>
+    <div class="footer__copyright-container">I</div>
     <ul class="nav nav_place_footer footer__nav">
       <li class="nav__item"><a href="#" class="nav__link">Главная</a></li>
       <li class="nav__item"><a href="htts://praktikum.yande.ru" class="nav__link" target="_blank">Яндекс.Практикум</a></li>
@@ -165,7 +165,7 @@
         />
         <span class="error-message"></span>
         <button type="submit" class="button button_size_xl button_state_active popup__button">Войти</button>
-        <p class="popup__text">или <a href="" class="popup__link">Зарегистрироваться</a></p>
+        <p class="popup__text">или <a href="#" class="popup__link popup__link_type_reg">Зарегистрироваться</a></p>
       </form>
     </div>
   </div>
@@ -204,21 +204,22 @@
         />
         <span id="error-name" class="error-message"></span>
 
-        <button type="submit" class="button button_size_xl button_state_inactive popup__button popup__button_is_inactive">Войти</button>
-        <p class="popup__text">или <a href="" class="popup__link">Зарегистрироваться</a></p>
+        <button id="register" type="submit" class="button button_size_xl button_state_inactive popup__button popup__button_is_inactive">Зарегистрироваться</button>
+        <p class="popup__text">или <a href="" class="popup__link popup__link_type_login">Войти</a></p>
       </form>
     </div>
   </div>
 
   <div class="popup popup_type_reged">
     <div class="popup__content">
-      <img src="./blocks/popup/__close/close.svg" alt="" class="popup__close popup__close_type_reg" />
+      <img src="./blocks/popup/__close/close.svg" alt="" class="popup__close popup__close_type_reged" />
       <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
       <a href="" class="popup__link">Выполнить вход</a>
     </div>
   </div>
 </div>
 
-
+<script src="./scripts/classes/Popup.js"></script>
+<script src="./scripts/index.js"></script>
 </body>
 </html>

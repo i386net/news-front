@@ -1,4 +1,6 @@
-@import url('_type/underline/nav__link_type_underline.css');
+@import url('_theme/nav__link_theme_dark.css');
+@import url('_theme/nav__link_theme_light.css');
+
 
 .nav__link {
   text-decoration: none;

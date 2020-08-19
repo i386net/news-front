@@ -1,4 +1,5 @@
 @import url('./__logo/header__logo.css');
+@import url('./_theme/header_theme_light.css');
 
 .header {
   display: flex;
@@ -7,6 +8,6 @@
   align-items: center;
   min-height: 80px;
   padding: 0 104px;
-  border-bottom: rgba(196, 196, 196, 0.01);
-  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+  /*border-bottom: rgba(196, 196, 196, 0.01);*/
+  /*box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.2);*/
 }
