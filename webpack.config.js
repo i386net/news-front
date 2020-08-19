@@ -8,7 +8,10 @@ const isDev = process.env.NODE_ENV === 'development';
 const webpack = require('webpack');
 
 module.exports = {
-  entry: { index: './src/scripts/index.js' },
+  entry: {
+    index: './src/scripts/index.js',
+    articles: './src/scripts/articles.js',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: './scripts/[name].[chunkhash].js',
@@ -23,7 +26,12 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          isDev ? 'style-loader' : {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../'
+            }
+          },
           'css-loader',
           'postcss-loader',
         ],
@@ -46,19 +54,26 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'index.[contenthash].css',
+      filename: 'style/index.[contenthash].css',
     }),
     new HtmlWebpackPlugin({
       inject: false,
-      template: './src/index.html',
-      filename: 'index.html',
+      template: './src/pages/index.html',
+      filename: 'pages/index.html',
+      chunks: ['index'],
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      template: './src/pages/articles.html',
+      filename: 'pages/articles.html',
+      chunks: ['articles'],
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(process.env.NODE_ENV),
     }),
     new OptimizeCssAssetsPlugin({
-      assetNameRegExp: /\.css$/g,
+      assetNameRegExp: /\.css$/i,
       cssProcessor: require('cssnano'),
       cssProcessorPluginOptions: {
         preset: ['default'],
