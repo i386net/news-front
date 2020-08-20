@@ -1,0 +1,9 @@
+@import url('./_is/error-message_is-centered.css');
+
+.error-message {
+  font-family: Inter, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  opacity: 0;
+}
