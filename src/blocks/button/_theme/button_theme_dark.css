@@ -1,3 +1,5 @@
 .button_theme_dark {
   border: 2px solid #ffffff;
+  background-color: transparent;
+  color: #FFFFFF;
 }

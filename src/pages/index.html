@@ -10,8 +10,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
   <title>NewsExplorer</title>
-<!--  <link rel="stylesheet" href="../styles/index.css">-->
-  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>" />
+  <link rel="stylesheet" href="../styles/index.css">
+<!--  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>" />-->
 </head>
 <body>
 <div class="root">
@@ -24,9 +24,9 @@
             <a href="./" class="nav__link nav__link_theme_dark">Главная</a>
           </li>
           <li class="nav__item">
-            <div id="signin" class="button button_theme_dark button_size_m">
+            <button id="signin" class="button button_theme_dark button_size_m">
               <a href="#" class="nav__link">Авторизоваться</a>
-            </div>
+            </button>
           </li>
         </ul>
     </header>
@@ -152,7 +152,7 @@
           placeholder="Введите почту"
           required
         />
-        <span class="error-message"></span>
+        <span class="error-message">Неправильный формат email</span>
         <span class="popup__subtitle">Пароль</span>
         <input
           type="password"
@@ -161,7 +161,7 @@
           placeholder="Введите пароль"
           required
         />
-        <span class="error-message"></span>
+        <span class="error-message">Неправильный формат пароля</span>
         <button type="submit" class="button button_size_xl button_state_active popup__button">Войти</button>
         <p class="popup__text">или <a href="#" class="popup__link popup__link_type_reg">Зарегистрироваться</a></p>
       </form>
@@ -173,7 +173,7 @@
       <img src="../images/close.svg" alt="" class="popup__close popup__close_type_reg" />
       <h3 class="popup__title">Регистрация</h3>
       <form class="popup__form popup__form_avatar" name="new" novalidate>
-        <span class="popup__subtitle">Email</span>
+        <span   class="popup__subtitle">Email</span>
         <input
           type="email"
           name="email"
@@ -181,7 +181,7 @@
           placeholder="Введите почту"
           required
         />
-        <span id="error-email" class="error-message"></span>
+        <span id="error-email" class="error-message">Неправильный формат email</span>
         <span class="popup__subtitle">Пароль</span>
         <input
           type="password"
@@ -190,7 +190,8 @@
           placeholder="Введите пароль"
           required
         />
-        <span id="error-password" class="error-message"></span>
+        <span id="error-password" class="error-message">Неправильный формат пароля</span>
+
         <span class="popup__subtitle">Имя</span>
         <input
           type="text"
@@ -200,7 +201,9 @@
           placeholder="Введите имя"
           required
         />
-        <span id="error-name" class="error-message"></span>
+<!--        <span id="error-name" class="error-message">Имя должно быть от 2 до 30 знаков</span>-->
+
+        <span class="error-message error-message_is-centered" id="user-exists">Такой пользователь уже есть</span>
 
         <button id="register" type="submit" class="button button_size_xl button_state_inactive popup__button popup__button_is_inactive">Зарегистрироваться</button>
         <p class="popup__text">или <a href="" class="popup__link popup__link_type_login">Войти</a></p>
@@ -217,8 +220,8 @@
   </div>
 </div>
 
-<!--<script src="../scripts/classes/Popup.js"></script>-->
-<!--<script src="../scripts/index.js"></script>-->
-<script src="<%= htmlWebpackPlugin.files.js %>"></script>
+<script src="../scripts/classes/Popup.js"></script>
+<script src="../scripts/index.js"></script>
+<!--<script src="<%= htmlWebpackPlugin.files.js %>"></script>-->
 </body>
 </html>
