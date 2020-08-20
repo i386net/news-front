@@ -5,3 +5,9 @@
 /*.nav__item:last-of-type {*/
 /*  margin-left: 32px;*/
 /*}*/
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .nav__item {
+    margin-left: 16px;
+  }
+}

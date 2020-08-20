@@ -1,3 +1,11 @@
 .author__text-container {
   margin-left: 56px;
+  max-width: 600px;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .author__text-container {
+    margin-left: 32px;
+    max-width: 424px;
+  }
 }

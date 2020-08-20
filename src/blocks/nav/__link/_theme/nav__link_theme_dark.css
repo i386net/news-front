@@ -2,3 +2,9 @@
   border-bottom: 3px solid white;
   padding-bottom: 28px;
 }
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .nav__link_theme_dark {
+    padding-bottom: 20px;
+  }
+}

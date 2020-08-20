@@ -2,3 +2,9 @@
   margin-left: 104px;
   color: #B6BCBF;
 }
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .footer__copyright-container {
+    margin-left: 40px;
+  }
+}

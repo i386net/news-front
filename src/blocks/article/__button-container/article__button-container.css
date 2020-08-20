@@ -10,3 +10,10 @@
   display: flex;
   cursor: default;
 }
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .article__button-container {
+    top: 8px;
+    right: 8px;
+  }
+}

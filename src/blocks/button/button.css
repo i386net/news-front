@@ -1,13 +1,13 @@
 @import url('_theme/button_theme_dark.css');
 @import url('_theme/button_theme_light.css');
 @import url('_theme/button_theme_white.css');
-@import url('_size/xs/button_size_xs.css');
-@import url('_size/s/button_size_s.css');
-@import url('_size/m/button_size_m.css');
-@import url('_size/l/button_size_l.css');
-@import url('_size/xl/button_size_xl.css');
-@import url('_state/active/button_state_active.css');
-@import url('_state/inactive/button_state_inactive.css');
+@import url('_size/button_size_xs.css');
+@import url('_size/button_size_s.css');
+@import url('_size/button_size_m.css');
+@import url('_size/button_size_l.css');
+@import url('_size/button_size_xl.css');
+@import url('_state/button_state_active.css');
+@import url('_state/button_state_inactive.css');
 
 .button {
   display: flex;

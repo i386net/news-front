@@ -1,3 +1,9 @@
 .search__title {
   margin: 0;
 }
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .search__title {
+    max-width: 385px;
+  }
+}
