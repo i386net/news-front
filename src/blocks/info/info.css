@@ -1,5 +1,13 @@
 @import url('./__title/info__title.css');
+@import url('./__subtitle/info__subtitle.css');
+@import url('./__text/info__text.css');
 
 .info {
   padding: 40px 0 56px 104px;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .info {
+    padding: 24px 0 32px 40px;
+  }
 }

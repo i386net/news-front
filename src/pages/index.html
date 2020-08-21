@@ -43,7 +43,7 @@
   </section>
 
 <!--  !!!!!!!!!!!!!!!! -->
-  <section class="articles root__articles">
+  <section class="articles root__articles articles_is-opened">
     <div class="articles__container">
       <h2 class="articles__title title title_size_m">Результаты поиска</h2>
       <div class="articles__grid">
@@ -101,22 +101,21 @@
       </div>
     </div>
 
-   <button  class="button button_size_l button_theme_white articles__link">Показать еще</button>
+   <button  class="button button_size_l button_theme_white articles__button">Показать еще</button>
   </section>
 
-  <section class="not-found">
+  <section class="not-found not-found_is-opened">
     <img src="../images/not-found.png" alt="Ничего не найдено" class="not-found__img">
     <h3 class="title title_size_s">Ничего не найдено</h3>
     <p class="subtitle subtitle_theme_light not-found__subtitle">К сожадению по вашему вопросу ничего не найдено</p>
   </section>
 
-  <section class="preloader">
+  <section class="preloader preloader_is-opened">
     <i class="preloader__circle"></i>
     <p class="subtitle subtitle_theme_light">Идет поиск новостей</p>
   </section>
 
   <section class="author">
-<!--    <img src="../images/author1.png" alt="" class="author__img">-->
     <picture class="author__img">
       <source srcset="../images/beard-320.jpg" media="(min-width: 320px) and (max-width: 767px)">
       <source srcset="../images/beard-768.jpg" media="(min-width: 600px) and (max-width: 1439px)">
@@ -131,7 +130,7 @@
   </section>
 
   <footer class="footer">
-    <div class="footer__copyright-container">© 2020 Supersite, Powered by News API</div>
+    <div class="footer__copyright-container"></div>
     <ul class="nav nav_place_footer footer__nav">
       <li class="nav__item"><a href="#" class="nav__link">Главная</a></li>
       <li class="nav__item"><a href="htts://praktikum.yande.ru" class="nav__link" target="_blank">Яндекс.Практикум</a></li>
@@ -226,8 +225,8 @@
   </div>
 </div>
 
-<!--<script src="../scripts/classes/Popup.js"></script>-->
-<!--<script src="../scripts/index.js"></script>-->
+<script src="../scripts/classes/Popup.js"></script>
+<script src="../scripts/index.js"></script>
 <!--<script src="<%= htmlWebpackPlugin.files.js %>"></script>-->
 </body>
 </html>

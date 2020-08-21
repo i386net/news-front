@@ -7,7 +7,6 @@
 
 @media (min-width: 768px) and (max-width: 1439px) {
   .header-area_theme_dark {
-    /*padding-bottom: 100%;*/
     background: url("../../../images/header_bg_768.jpg") no-repeat;
     background-size: cover;
   }

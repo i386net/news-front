@@ -1,4 +1,4 @@
-import '../styles/articles.css';
+// import '../styles/articles.css';
 
 const copyright = document.querySelector('.footer__copyright-container');
 

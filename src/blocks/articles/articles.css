@@ -1,6 +1,6 @@
 @import url('./__title/articles__title.css');
 @import url('./__grid/articles__grid.css');
-@import url('./__link/articles__link.css');
+@import url('__button/articles__button.css');
 @import url('./__container/articles__container.css');
 @import url('./_is-opened/articles_is-opened.css');
 
@@ -10,12 +10,12 @@
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  padding: 80px 0;
+  /*padding-bottom: 80px;*/
   display: none;
 }
 
 @media (min-width: 768px) and (max-width: 1439px) {
   .articles {
-    padding: 40px 0;
+    /*padding-bottom: 40px;*/
   }
 }

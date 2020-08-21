@@ -2,3 +2,10 @@
   width: 112px;
   height: 48px;
 }
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .button_size_xs {
+    width: 100px;
+    height: 40px;
+  }
+}

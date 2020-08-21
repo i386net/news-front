@@ -1,5 +1,5 @@
 .articles__grid {
-  margin: 64px auto 64px;
+  margin: 62px auto 64px;
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(3, 1fr);

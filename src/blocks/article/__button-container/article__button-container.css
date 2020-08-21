@@ -16,4 +16,8 @@
     top: 8px;
     right: 8px;
   }
+  .article__button-container:hover .article__button_type_alert {
+    display: none;
+    cursor: default;
+  }
 }
