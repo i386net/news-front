@@ -14,3 +14,9 @@
     margin: 40px 0 40px 40px;
   }
 }
+
+@media (max-width: 767px) {
+  .author__img {
+    margin: 32px 24px 24px 24px;
+  }
+}

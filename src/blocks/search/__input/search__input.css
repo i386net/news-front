@@ -11,6 +11,11 @@
   color: #1A1B22;
 }
 
+.search__input:focus {
+  border: 2px solid #2A65CC;
+  border-radius: 100px;
+}
+
 ::placeholder {
   color: #B6BCBF;
 }

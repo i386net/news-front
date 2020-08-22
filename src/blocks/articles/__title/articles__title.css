@@ -8,3 +8,9 @@
     margin: 40px 0 32px 0;
   }
 }
+
+@media (max-width: 767px) {
+  .articles__title {
+    margin: 32px 16px 24px;
+  }
+}

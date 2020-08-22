@@ -4,3 +4,12 @@
   color: #ffffff;
   cursor: pointer;
 }
+
+.button_state_active:hover {
+  background-color: #347EFF;
+}
+
+.button_state_active:active {
+  background-color: #2A65CC;
+}
+

@@ -9,3 +9,11 @@
   flex-direction: row;
   justify-content: center;
 }
+
+@media (max-width: 767px) {
+  .author {
+    flex-direction: column;
+    align-items: center;
+  }
+
+}

@@ -11,3 +11,9 @@
     margin: 0 auto 40px;
   }
 }
+
+@media (max-width: 767px) {
+  .articles__button {
+    margin: 0 auto 32px;
+  }
+}

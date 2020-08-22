@@ -8,3 +8,10 @@
     width: calc(768px - (40px*2));
   }
 }
+
+@media (max-width: 767px) {
+  .articles__container {
+    width: calc(320px - (16px*2));
+  }
+
+}

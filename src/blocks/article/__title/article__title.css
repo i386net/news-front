@@ -8,3 +8,9 @@
     margin-bottom: 10px;
   }
 }
+
+@media (max-width: 767px) {
+  .article__title {
+    margin: 10px 0;
+  }
+}

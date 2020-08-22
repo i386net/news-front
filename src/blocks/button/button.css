@@ -18,3 +18,8 @@
   box-sizing: border-box;
   cursor: pointer;
 }
+
+.button:disabled {
+  background-color: #E6E8EB;
+  color: #B6BCBF;
+}

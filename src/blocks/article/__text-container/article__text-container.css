@@ -9,3 +9,9 @@
     margin: 16px;
   }
 }
+
+@media (max-width: 767px) {
+  .article__text-container {
+    margin: 10px 16px 16px 16px;
+  }
+}

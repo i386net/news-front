@@ -14,3 +14,13 @@
     margin-bottom: 12px;
   }
 }
+
+@media (max-width: 767px) {
+  .article__text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+}
