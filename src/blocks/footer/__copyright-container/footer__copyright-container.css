@@ -8,3 +8,10 @@
     margin-left: 40px;
   }
 }
+
+@media (max-width: 767px) {
+  .footer__copyright-container {
+    order: 2;
+    margin: 0;
+  }
+}
