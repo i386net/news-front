@@ -8,7 +8,6 @@
 @import url('./__text/article__text.css');
 @import url('./__link/article__link.css');
 @import url('./__tag/article__tag.css');
-@import url('./__button-text/article__button-text.css');
 
 .article {
   border-radius: 16px;

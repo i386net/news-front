@@ -8,3 +8,8 @@
   font-weight: 500;
 }
 
+@media (max-width: 767px) {
+  .search__button {
+    position: unset;
+  }
+}

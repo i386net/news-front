@@ -1,0 +1,27 @@
+@import url('./__separator/menu__separator.css');
+@import url('./__logo/menu__logo.css');
+@import url('./__list/menu__list.css');
+@import url('__link/menu__link.css');
+@import url('./__item/menu__item.css');
+@import url('./__button/menu__button.css');
+@import url('./_is-open/menu_is-open.css');
+
+.menu {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .menu {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #1A1B22;
+    padding-top: 16px;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+  }
+}

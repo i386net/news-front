@@ -1,0 +1,6 @@
+.menu.menu_is-open {
+  /*display: block;*/
+  visibility: visible;
+  opacity:1;
+  transition-delay:0s;
+}

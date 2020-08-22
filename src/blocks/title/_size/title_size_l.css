@@ -9,3 +9,10 @@
     line-height: 40px;
   }
 }
+
+@media (max-width: 767px) {
+  .title_size_l {
+    font-size: 36px;
+    line-height: 40px;
+  }
+}

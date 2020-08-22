@@ -7,3 +7,9 @@
     width: 452px;
   }
 }
+
+@media (max-width: 767px) {
+  .search__container {
+    max-width: 320px;
+  }
+}

@@ -1,11 +1,10 @@
 @import url('./__link/nav__link.css');
 @import url('./__item/nav__item.css');
+@import url('./_place/nav_place_footer.css');
+@import url('./_place/nav_place_header.css');
 
 .nav {
-  display: flex;
-  flex-direction: row;
   color: inherit;
-  justify-content: space-between;
   align-items: center;
   list-style-type: none;
   padding-left: 0;

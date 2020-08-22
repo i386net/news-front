@@ -1,0 +1,18 @@
+@import url('./_is/burger-button_is-open.css');
+
+.burger-button {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 200;
+  display: none;
+  background: url("../../images/menu.svg");
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 767px) {
+  .burger-button {
+    display: block;
+  }
+}

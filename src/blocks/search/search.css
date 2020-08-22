@@ -18,3 +18,9 @@
     padding: 39px 0 48px 0;
   }
 }
+
+@media (max-width: 767px) {
+  .search {
+    padding: 30px 16px 32px 16px;
+  }
+}

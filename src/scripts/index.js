@@ -10,11 +10,19 @@
   const registerButton = document.querySelector('.popup__link_type_reg');
   const loginButton = document.querySelector('.popup__link_type_login');
   const regButton = document.querySelector('#register');
+  const burgerButton = document.querySelector('.burger-button');
+  const menu = document.querySelector('.menu');
 
   const loginPopup = new Popup(loginElement);
   const signupPopup = new Popup(signupElement);
   const signedupPopup = new Popup(signedupElement);
 
+
+  burgerButton.addEventListener('click', evt => {
+    evt.preventDefault();
+    burgerButton.classList.toggle('burger-button_is-open');
+    menu.classList.toggle('menu_is-open');
+  })
 
   authButton.addEventListener('click', ((evt) => {
     evt.preventDefault();

@@ -3,3 +3,10 @@
     margin: 16px 0;
   }
 }
+
+@media (max-width: 767px) {
+  .search__subtitle {
+    max-width: 288px;
+    margin: 16px 0;
+  }
+}
