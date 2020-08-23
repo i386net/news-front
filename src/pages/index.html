@@ -6,7 +6,7 @@
   <meta name="keywords" content="NewsExplorer, HTML, CSS">
   <meta name="author" content="DK">
   <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
   <title>NewsExplorer</title>
@@ -55,7 +55,7 @@
       <div class="search__container">
         <h1 class="title title_size_l search__title">Что в мире творится?</h1>
         <p class="subtitle search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своем личном кабинете.</p>
-        <form action="" class="search__form" name="search">
+        <form class="search__form" name="search">
           <input type="text" class="search__input" placeholder="Введите тему новости" id="newsSearch" required>
           <button class="button button_state_active button_size_s search__button">Искать</button>
         </form>
@@ -132,10 +132,10 @@
 
   <section class="preloader preloader_is-opened">
     <i class="preloader__circle"></i>
-    <p class="subtitle subtitle_theme_light">Идет поиск новостей</p>
+    <h5 class="subtitle subtitle_theme_light">Идет поиск новостей</h5>
   </section>
 
-  <section class="author">
+  <div class="author">
     <picture class="author__img">
       <source srcset="<%=require('../images/beard-320.jpg').default%>" media="(min-width: 320px) and (max-width: 767px)">
       <source srcset="<%=require('../images/beard-768.jpg').default%>" media="(min-width: 600px) and (max-width: 1439px)">
@@ -147,7 +147,7 @@
       </p>
       <p class="author__text">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
     </article>
-  </section>
+  </div>
 
   <footer class="footer">
     <div class="footer__copyright-container"></div>
