@@ -2,7 +2,6 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
-const CopyPlugin = require('copy-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development';
 const webpack = require('webpack');
@@ -16,9 +15,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: './scripts/[name].[chunkhash].js',
   },
-  // devServer: {
-  //   contentBase: path.join(__dirname, 'dist/pages')
-  // },
   module: {
     rules: [
       {
@@ -82,12 +78,6 @@ module.exports = {
         preset: ['default'],
       },
       canPrint: true,
-    }),
-    new CopyPlugin({
-      patterns: [{
-        from: 'src/images',
-        to: 'images'
-      }],
     }),
   ],
 };
