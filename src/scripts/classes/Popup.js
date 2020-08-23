@@ -20,7 +20,6 @@ class Popup  {
   }
 
   close(event) {
-    console.log(event.type);
     if (event.type === 'keydown' && event.key === 'Escape') {
       this.closeHandling();
     }

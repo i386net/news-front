@@ -8,8 +8,8 @@
   color: inherit;
 }
 
-@media (max-width: 767px) {
-  .header__logo {
-    /*display: none;*/
-  }
-}
+/*@media (max-width: 767px) {*/
+/*  .header__logo {*/
+/*    !*display: none;*!*/
+/*  }*/
+/*}*/

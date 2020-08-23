@@ -1,4 +1,5 @@
 @import url('./_is/error-message_is-centered.css');
+@import url('./_is/error-message_is-opened.css');
 
 .error-message {
   font-family: Inter, Helvetica, sans-serif;

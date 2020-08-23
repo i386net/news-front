@@ -1,6 +1,4 @@
 .author__img {
-  /*width: 464px;*/
-  /*height: 100%;*/
   margin-left: 104px;
   margin-top: 80px;
   margin-bottom: 80px;
@@ -8,9 +6,6 @@
 
 @media (min-width: 768px) and (max-width: 1439px) {
   .author__img {
-    /*margin-top: 40px;*/
-    /*margin-bottom: 40px;*/
-    /*margin-left: 40px;*/
     margin: 40px 0 40px 40px;
   }
 }

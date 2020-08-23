@@ -63,7 +63,6 @@
     </div>
   </section>
 
-<!--  !!!!!!!!!!!!!!!! -->
   <section class="articles root__articles articles_is-opened">
     <div class="articles__container">
       <h2 class="articles__title title title_size_m">Результаты поиска</h2>
@@ -161,86 +160,88 @@
         <li class="nav__item"><a href="https://praktikum.yandex.ru" class="nav__link" target="_blank">Яндекс.Практикум</a>
       </ul>
       <ul class="social">
-        <li class="social__item"><a href="#" target="_blank" class="social__link"><img src="../images/github.svg" alt="Github" class="social__img"></a></li>
-        <li class="social__item"><a href="#" target="_blank" class="social__link"><img src="../images/fb.svg" alt="Facebook" class="social__img"></a></li>
+        <li class="social__item"><a href="https://github.com/i386net/" target="_blank" class="social__link"><img src="../images/github.svg" alt="Github" class="social__img"></a></li>
+        <li class="social__item"><a href="https://facebook.com" target="_blank" class="social__link"><img src="../images/fb.svg" alt="Facebook" class="social__img"></a></li>
       </ul>
     </nav>
   </footer>
 
-<!--  !!!!!!!!!!!!!!!! -->
 
 <!--  popup -->
 <!--  to view popups add popup_is-opened -->
 
-  <div class="popup popup_type_login">
+  <div class="popup popup_type_signin">
     <div class="popup__content">
       <picture>
         <source srcset="../images/mobile-close.svg" media="(max-width: 500px)">
-        <img src="../images/close.svg" alt="" class="popup__close popup__close_type_login"/>
+        <img src="../images/close.svg" alt="" class="popup__close popup__close_type_signin"/>
       </picture>
 
       <h3 class="popup__title">Вход</h3>
-      <form class="popup__form popup__form_login" name="new" novalidate>
+      <form class="popup__form popup__form_login" name="signin" novalidate>
         <span class="popup__subtitle">Email</span>
         <input
           type="email"
           name="email"
+          id="signin-email"
           class="popup__input popup__input_type_email"
           placeholder="Введите почту"
           required
         />
-        <span class="error-message">Неправильный формат email</span>
+        <span class="error-message error-message_is-opened">Неправильный формат email</span>
         <span class="popup__subtitle">Пароль</span>
         <input
           type="password"
           name="password"
+          id="signin-password"
           class="popup__input popup__input_type_password"
           placeholder="Введите пароль"
           required
         />
-        <span class="error-message">Неправильный формат пароля</span>
+        <span class="error-message error-message_is-opened">Неправильный формат пароля</span>
         <button type="submit" class="button button_size_xl button_state_active popup__button">Войти</button>
         <p class="popup__text">или <a href="#" class="popup__link popup__link_type_reg">Зарегистрироваться</a></p>
       </form>
     </div>
   </div>
 
-  <div class="popup popup_type_reg">
+  <div class="popup popup_type_signup">
     <div class="popup__content">
-      <img src="../images/close.svg" alt="" class="popup__close popup__close_type_reg" />
+      <img src="../images/close.svg" alt="" class="popup__close popup__close_type_signup" />
       <h3 class="popup__title">Регистрация</h3>
-      <form class="popup__form popup__form_signup" name="new" novalidate>
+      <form class="popup__form popup__form_signup" name="signup" novalidate>
         <span   class="popup__subtitle">Email</span>
         <input
           type="email"
           name="email"
+          id="signup-email"
           class="popup__input popup__input_type_email"
           placeholder="Введите почту"
           required
         />
-        <span id="error-email" class="error-message">Неправильный формат email</span>
+        <span id="error-email" class="error-message error-message_is-opened">Неправильный формат email</span>
         <span class="popup__subtitle">Пароль</span>
         <input
           type="password"
           name="password"
+          id="signup-password"
           class="popup__input popup__input_type_password"
           placeholder="Введите пароль"
           required
         />
-        <span id="error-password" class="error-message">Неправильный формат пароля</span>
+        <span id="error-password" class="error-message error-message_is-opened">Неправильный формат пароля</span>
 
         <span class="popup__subtitle">Имя</span>
         <input
           type="text"
           name="name"
-          id="name"
+          id="signup-name"
           class="popup__input popup__input_type_name"
           placeholder="Введите имя"
           required
         />
-<!--        <span id="error-name" class="error-message">Имя должно быть от 2 до 30 знаков</span>-->
-
-        <span class="error-message error-message_is-centered" id="user-exists">Такой пользователь уже есть</span>
+        <span id="error-name" class="error-message error-message_is-opened">Неправильный формат имени</span>
+        <span class="error-message error-message_is-centered error-message_is-opened" id="user-exists">Такой пользователь уже есть</span>
 
         <button id="register" type="submit" class="button button_size_xl button_state_inactive popup__button popup__button_is_inactive">Зарегистрироваться</button>
         <p class="popup__text">или <a href="" class="popup__link popup__link_type_login">Войти</a></p>
@@ -248,7 +249,7 @@
     </div>
   </div>
 
-  <div class="popup popup_type_reged">
+  <div class="popup popup_type_registered">
     <div class="popup__content">
       <img src="../images/close.svg" alt="" class="popup__close popup__close_type_reged" />
       <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
