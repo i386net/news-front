@@ -2,3 +2,8 @@
   text-decoration: none;
   color: inherit;
 }
+
+.menu__link:hover {
+  color: #B6BCBF;
+  border-bottom: 2px solid #B6BCBF;
+}

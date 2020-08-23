@@ -8,6 +8,7 @@
 @import url('_size/button_size_xl.css');
 @import url('_state/button_state_active.css');
 @import url('_state/button_state_inactive.css');
+@import url('__ico/button__ico.css');
 
 .button {
   display: flex;

@@ -10,3 +10,9 @@
     font-size: 14px;
   }
 }
+
+@media (max-width: 767px) {
+  .subtitle {
+    /*font-size: 12px;*/
+  }
+}

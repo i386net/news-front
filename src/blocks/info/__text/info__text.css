@@ -12,3 +12,9 @@
     font-size: 14px;
   }
 }
+
+@media (max-width: 767px) {
+  .info__text {
+    font-size: 18px;
+  }
+}

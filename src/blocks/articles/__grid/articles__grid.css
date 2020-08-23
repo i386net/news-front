@@ -14,7 +14,7 @@
 
 @media (max-width: 767px) {
   .articles__grid {
-    margin: 0 auto 15px;
+    margin: 16px auto;
     gap: 10px;
     grid-template-columns: 1fr;
     grid-template-rows: auto;

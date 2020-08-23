@@ -9,3 +9,10 @@
     border: 1px solid #FFFFFF;
   }
 }
+
+@media (max-width: 767px) {
+  .button_theme_dark:hover {
+    border: 2px solid #B6BCBF;
+    /*color: #B6BCBF;*/
+  }
+}

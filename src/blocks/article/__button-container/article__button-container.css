@@ -21,3 +21,9 @@
     cursor: default;
   }
 }
+
+@media (max-width: 767px) {
+  .article__button-container:hover .article__button_type_alert {
+    display: none;
+  }
+}
