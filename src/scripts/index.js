@@ -1,5 +1,5 @@
-// import Popup from './classes/Popup'; todo uncomment for prod
-// import '../styles/index.css';
+import Popup from './classes/Popup';
+import '../styles/index.css';
 
 (function () {
   const copyright = document.querySelector('.footer__copyright-container');

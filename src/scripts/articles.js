@@ -1,8 +1,8 @@
-// import '../styles/articles.css';
+import '../styles/articles.css';
 
 const copyright = document.querySelector('.footer__copyright-container');
 const menu = document.querySelector('.menu');
-const menuButton = document.querySelector('.menu__button');
+// const menuButton = document.querySelector('.menu__button');
 const burgerButton = document.querySelector('.burger-button');
 
 copyright.textContent = `© ${new Date().getFullYear()} Supersite, Powered by News AP`;

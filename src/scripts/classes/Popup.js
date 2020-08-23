@@ -1,5 +1,4 @@
-// export default todo uncomment for prod
-class Popup  {
+export default class Popup  {
   constructor(popup) {
     this.popup = popup;
     this.closeButton = this.popup.querySelector('.popup__close');
