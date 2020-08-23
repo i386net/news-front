@@ -2,3 +2,9 @@
   width: 356px;
   text-align: center;
 }
+
+@media (max-width: 767px) {
+  .not-found__subtitle {
+    max-width: calc(100% - (16px * 2));
+  }
+}

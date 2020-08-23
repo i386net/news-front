@@ -11,3 +11,10 @@
     margin-left: 16px;
   }
 }
+
+@media (max-width: 767px) {
+  .nav__item {
+    margin-left: 0;
+    margin-bottom: 38px;
+  }
+}

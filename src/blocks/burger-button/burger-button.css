@@ -9,6 +9,7 @@
   background: url("../../images/menu.svg");
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
 
 @media (max-width: 767px) {

@@ -1,11 +1,11 @@
-.nav_place_header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+/*.nav_place_header {*/
+/*  display: flex;*/
+/*  flex-direction: row;*/
+/*  justify-content: space-between;*/
+/*}*/
 
-@media (max-width: 767px) {
-  .nav_place_header {
-    display: none;
-  }
-}
+/*@media (max-width: 767px) {*/
+/*  .nav_place_header {*/
+/*    display: none;*/
+/*  }*/
+/*}*/

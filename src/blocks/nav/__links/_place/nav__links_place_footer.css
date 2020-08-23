@@ -1,0 +1,11 @@
+.nav__links_place_footer {
+  display: flex;
+  flex-direction: row;
+
+}
+
+@media (max-width: 767px) {
+  .nav__links_place_footer {
+    flex-direction: column;
+  }
+}

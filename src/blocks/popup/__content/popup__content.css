@@ -13,3 +13,11 @@
     width: calc(100% - 60px);
   }
 }
+@media (max-width: 500px) {
+  .popup__content {
+    position: absolute;
+    bottom: 0;
+    height: calc(100% - 56px);
+    width: 100%;
+  }
+}

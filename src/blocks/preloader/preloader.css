@@ -16,3 +16,9 @@
     padding: 40px 0;
   }
 }
+
+@media (max-width: 767px) {
+  .preloader {
+    padding: 32px 0;
+  }
+}

@@ -12,10 +12,16 @@
   const regButton = document.querySelector('#register');
   const burgerButton = document.querySelector('.burger-button');
   const menu = document.querySelector('.menu');
+  const menuButton = document.querySelector('.menu__button');
 
   const loginPopup = new Popup(loginElement);
   const signupPopup = new Popup(signupElement);
   const signedupPopup = new Popup(signedupElement);
+
+  menuButton.addEventListener('click', evt => {
+    evt.preventDefault();
+    loginPopup.open();
+  })
 
 
   burgerButton.addEventListener('click', evt => {
