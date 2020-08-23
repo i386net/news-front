@@ -68,7 +68,7 @@
       <h2 class="articles__title title title_size_m">Результаты поиска</h2>
       <div class="articles__grid">
         <div class="article">
-          <img src="../images/card.png" alt="На картинке изображены растения" class="article__img">
+          <img src="<%=require('../images/card.png').default%>" alt="На картинке изображены растения" class="article__img">
           <div class="article__button-container">
             <div class="article__button article__button_type_alert">
               <p class="article__tooltip">Войдите, чтобы сохранить статьи</p>
@@ -85,7 +85,7 @@
           </div>
         </div>
         <div class="article">
-          <img src="../images/card.png" alt="На картинке изображены растения" class="article__img">
+          <img src="<%=require('../images/card.png').default%>" alt="На картинке изображены растения" class="article__img">
           <div class="article__button-container">
             <div class="article__button article__button_type_alert">
               <p class="article__tooltip">Войдите, чтобы сохранить статьи</p>
@@ -102,7 +102,7 @@
           </div>
         </div>
         <div class="article">
-          <img src="../images/card.png" alt="На картинке изображены растения" class="article__img">
+          <img src="<%=require('../images/card.png').default%>" alt="На картинке изображены растения" class="article__img">
           <div class="article__button-container">
             <div class="article__button article__button_type_alert">
               <p class="article__tooltip">Войдите, чтобы сохранить статьи</p>
@@ -125,7 +125,7 @@
   </section>
 
   <section class="not-found not-found_is-opened">
-    <img src="../images/not-found.png" alt="Ничего не найдено" class="not-found__img">
+    <img src="<%=require('../images/not-found.png').default%>" alt="Ничего не найдено" class="not-found__img">
     <h3 class="title title_size_s">Ничего не найдено</h3>
     <p class="subtitle subtitle_theme_light not-found__subtitle">К сожадению по вашему вопросу ничего не найдено</p>
   </section>
@@ -137,9 +137,9 @@
 
   <section class="author">
     <picture class="author__img">
-      <source srcset="../images/beard-320.jpg" media="(min-width: 320px) and (max-width: 767px)">
-      <source srcset="../images/beard-768.jpg" media="(min-width: 600px) and (max-width: 1439px)">
-      <img src="../images/beard-1440-464.jpg" alt="Изображение автора">
+      <source srcset="<%=require('../images/beard-320.jpg').default%>" media="(min-width: 320px) and (max-width: 767px)">
+      <source srcset="<%=require('../images/beard-768.jpg').default%>" media="(min-width: 600px) and (max-width: 1439px)">
+      <img src="<%=require('../images/beard-1440-464.jpg').default%>" alt="Изображение автора">
     </picture>
     <article class="author__text-container">
       <h2 class="title title_size_m author__title">Об авторе</h2>
@@ -160,8 +160,8 @@
         <li class="nav__item"><a href="https://praktikum.yandex.ru" class="nav__link" target="_blank">Яндекс.Практикум</a>
       </ul>
       <ul class="social">
-        <li class="social__item"><a href="https://github.com/i386net/" target="_blank" class="social__link"><img src="../images/github.svg" alt="Github" class="social__img"></a></li>
-        <li class="social__item"><a href="https://facebook.com" target="_blank" class="social__link"><img src="../images/fb.svg" alt="Facebook" class="social__img"></a></li>
+        <li class="social__item"><a href="https://github.com/i386net/" target="_blank" class="social__link"><img src="<%=require('../images/github.svg').default%>" alt="Github" class="social__img"></a></li>
+        <li class="social__item"><a href="https://facebook.com" target="_blank" class="social__link"><img src="<%=require('../images/fb.svg').default%>" alt="Facebook" class="social__img"></a></li>
       </ul>
     </nav>
   </footer>
@@ -173,8 +173,8 @@
   <div class="popup popup_type_signin">
     <div class="popup__content">
       <picture>
-        <source srcset="../images/mobile-close.svg" media="(max-width: 500px)">
-        <img src="../images/close.svg" alt="" class="popup__close popup__close_type_signin"/>
+        <source srcset="<%=require('../images/mobile-close.svg').default%>" media="(max-width: 500px)">
+        <img src="<%=require('../images/close.svg').default%>" alt="" class="popup__close popup__close_type_signin"/>
       </picture>
 
       <h3 class="popup__title">Вход</h3>
@@ -207,7 +207,7 @@
 
   <div class="popup popup_type_signup">
     <div class="popup__content">
-      <img src="../images/close.svg" alt="" class="popup__close popup__close_type_signup" />
+      <img src="<%=require('../images/close.svg').default%>" alt="" class="popup__close popup__close_type_signup" />
       <h3 class="popup__title">Регистрация</h3>
       <form class="popup__form popup__form_signup" name="signup" novalidate>
         <span   class="popup__subtitle">Email</span>
@@ -251,7 +251,7 @@
 
   <div class="popup popup_type_registered">
     <div class="popup__content">
-      <img src="../images/close.svg" alt="" class="popup__close popup__close_type_reged" />
+      <img src="<%=require('../images/close.svg').default%>" alt="" class="popup__close popup__close_type_reged" />
       <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
       <a href="" class="popup__link">Выполнить вход</a>
     </div>
