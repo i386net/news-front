@@ -16,6 +16,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: './scripts/[name].[chunkhash].js',
   },
+  // devServer: {
+  //   contentBase: path.join(__dirname, 'dist/pages')
+  // },
   module: {
     rules: [
       {
@@ -59,13 +62,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: false,
       template: './src/pages/index.html',
-      filename: 'pages/index.html',
+      filename: 'index.html',
       chunks: ['index'],
     }),
     new HtmlWebpackPlugin({
       inject: false,
       template: './src/pages/articles.html',
-      filename: 'pages/articles.html',
+      filename: 'articles.html',
       chunks: ['articles'],
     }),
     new WebpackMd5Hash(),
