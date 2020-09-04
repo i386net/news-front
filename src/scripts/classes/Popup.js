@@ -4,6 +4,7 @@ export default class Popup  {
     this.closeButton = this.popup.querySelector('.popup__close');
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   open() {
@@ -14,6 +15,7 @@ export default class Popup  {
 
   closeHandling() {
     this.popup.classList.remove('popup_is-opened');
+    this.reset();
     document.removeEventListener('keydown', this.close);
     this.popup.removeEventListener('click', this.close);
   }
@@ -31,6 +33,11 @@ export default class Popup  {
       this.closeHandling();
     }
     // this.closeHandling()
+  }
+
+  reset() {
+    const form = this.popup.querySelector('.popup__form')
+    if(form) form.reset();
   }
 
 }
