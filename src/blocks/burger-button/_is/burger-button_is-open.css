@@ -1,3 +1,4 @@
 .burger-button.burger-button_is-open {
   background: url("../../../images/mobile-close.svg");
+  position: fixed;
 }
