@@ -1,0 +1,17 @@
+.title_size_s {
+  font-size: 26px;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .title_size_s {
+    font-size: 22px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .title_size_s {
+    font-size: 22px;
+    line-height: 26px;
+  }
+}

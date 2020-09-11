@@ -1,0 +1,17 @@
+.author__title {
+  margin-top: 131px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .author__title {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .author__title {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+}

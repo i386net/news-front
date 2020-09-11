@@ -1,0 +1,24 @@
+.article__tag {
+  margin: 0;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 88px;
+  height: 40px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  display: block;
+  font-size: 12px;
+  line-height: 38px;
+  text-align: center;
+  opacity: 1;
+  color: #000;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) and (max-width: 1439px ){
+  .article__tag {
+    top: 8px;
+    left: 8px;
+  }
+}

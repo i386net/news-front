@@ -1,0 +1,8 @@
+@media (max-width: 767px) {
+  .button__ico_theme_dark {
+    fill: #FFFFFF;
+  }
+  .button__ico_theme_dark:hover {
+    fill: #B6BCBF;
+  }
+}

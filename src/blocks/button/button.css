@@ -1,0 +1,26 @@
+@import url('_theme/button_theme_dark.css');
+@import url('_theme/button_theme_light.css');
+@import url('_theme/button_theme_white.css');
+@import url('_size/button_size_xs.css');
+@import url('_size/button_size_s.css');
+@import url('_size/button_size_m.css');
+@import url('_size/button_size_l.css');
+@import url('_size/button_size_xl.css');
+@import url('_state/button_state_active.css');
+@import url('_state/button_state_inactive.css');
+@import url('__ico/button__ico.css');
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.button:disabled {
+  background-color: #E6E8EB;
+  color: #B6BCBF;
+}

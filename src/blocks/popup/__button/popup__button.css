@@ -1,0 +1,9 @@
+@import url('./_is/popup__button_is_active.css');
+@import url('./_is/popup__button_is_inactive.css');
+
+
+.popup__button {
+  border: none;
+  margin-top: 39px;
+  font-weight: 600;
+}

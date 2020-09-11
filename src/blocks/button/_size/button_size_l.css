@@ -1,0 +1,19 @@
+.button_size_l {
+  width: 288px;
+  height: 64px;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .button_size_l {
+    width: 240px;
+    height: 56px;
+  }
+}
+
+@media (max-width: 767px) {
+  .button_size_l {
+    width: 288px;
+    height: 56px;
+  }
+
+}

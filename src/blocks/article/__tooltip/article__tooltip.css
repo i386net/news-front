@@ -1,0 +1,9 @@
+@import url('_is-dark/article__tooltip_is-dark.css');
+
+.article__tooltip {
+  font-size: 10px;
+  line-height: 11px;
+  text-align: center;
+  opacity: .3;
+  color: #000;
+}

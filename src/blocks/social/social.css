@@ -1,0 +1,14 @@
+@import url('./__item/social__item.css');
+
+.social {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  padding-left: 42px;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .social {
+    padding-left: 26px;
+  }
+}

@@ -1,0 +1,6 @@
+@import url('_theme/header-area_theme_dark.css');
+@import url('_theme/header-area_theme_light.css');
+
+.header-area {
+  width: 100%;
+}

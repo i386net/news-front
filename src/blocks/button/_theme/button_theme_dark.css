@@ -1,0 +1,18 @@
+.button_theme_dark {
+  border: 2px solid #ffffff;
+  background-color: transparent;
+  color: #FFFFFF;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .button_theme_dark {
+    border: 1px solid #FFFFFF;
+  }
+}
+
+@media (max-width: 767px) {
+  .button_theme_dark:hover {
+    border: 2px solid #B6BCBF;
+    /*color: #B6BCBF;*/
+  }
+}

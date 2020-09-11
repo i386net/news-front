@@ -1,0 +1,13 @@
+.article__button_type_alert {
+  width: 182px;
+  box-shadow: 0 10px 22px rgba(59, 74, 116, 0.1);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .article__button_type_alert {
+    width: 164px;
+  }
+}

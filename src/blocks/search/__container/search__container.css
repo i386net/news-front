@@ -1,0 +1,15 @@
+.search__container {
+  width: 608px;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .search__container {
+    width: 452px;
+  }
+}
+
+@media (max-width: 767px) {
+  .search__container {
+    max-width: 320px;
+  }
+}

@@ -1,0 +1,21 @@
+@import url('./_is/burger-button_is-open.css');
+@import url('./_theme/burger-button_theme_light.css');
+@import url('./_theme/burger-button_theme_dark.css');
+
+.burger-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 200;
+  display: none;
+
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .burger-button {
+    display: block;
+  }
+}
