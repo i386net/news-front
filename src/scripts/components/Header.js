@@ -1,12 +1,11 @@
 import BaseComponent from './BaseComponent';
 
 export default class Header extends  BaseComponent {
-  constructor(headerArea, popup, api) {
+  constructor({headerArea, popup, api}) {
     super();
     this.headerArea = headerArea;
     this.popup = popup;
     this.api = api;
-    // this.button = button;
     this.button = document.createElement('button');
     this.isLoggedIn = null;
     this.name  = null;
