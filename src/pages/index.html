@@ -252,7 +252,7 @@
         <span id="error-name" class="error-message error-message_is-opened">Неправильный формат имени</span>
         <span class="error-message error-message_is-centered error-message_is-opened" id="user-exists">Такой пользователь уже есть</span>
 
-        <button id="register" type="submit" class="button button_size_xl button_state_inactive popup__button popup__button_is_inactive">Зарегистрироваться</button>
+        <button id="register" type="submit" class="button button_size_xl popup__button button_state_active">Зарегистрироваться</button>
         <p class="popup__text">или <a href="" class="popup__link popup__link_type_login">Войти</a></p>
       </form>
     </div>
@@ -262,7 +262,7 @@
     <div class="popup__content">
       <img src="<%=require('../images/close.svg').default%>" alt="" class="popup__close popup__close_type_reged" />
       <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
-      <a href="" class="popup__link">Выполнить вход</a>
+      <a href="" class="popup__link popup__link_type_login">Выполнить вход</a>
     </div>
   </div>
 </div>
