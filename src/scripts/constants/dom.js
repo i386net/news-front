@@ -7,6 +7,7 @@ export default {
   signinPopup: document.querySelector('.popup_type_signin'),
   successPopup: document.querySelector('.popup_type_registered'),
   signupLink: document.querySelector('.popup__link_type_reg'),
-  signinLink: document.querySelector('.popup__link_type_login'),
+  signinLink: document.querySelectorAll('.popup__link_type_login'),
   copyright: document.querySelector('.footer__copyright-container'),
+  signupForm: document.querySelector('.popup__form_signup'),
 }
