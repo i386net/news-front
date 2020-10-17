@@ -2,10 +2,6 @@ import Popup from './components/Popup';
 import NewsApi from './api/NewsApi';
 import Header from './components/Header';
 import MainApi from './api/MainApi';
-// import AuthButton from './components/AuthButton';
-
-// import Template from './templates/Template';
-// import { popup, header } from './constants/constants';
 import dom from './constants/dom';
 import '../styles/index.css';
 
@@ -13,6 +9,7 @@ const copyright = document.querySelector('.footer__copyright-container');
 
 const signinPopup = new Popup(dom.signinPopup);
 const signupPopup = new Popup(dom.signupPopup);
+const successPopup = new Popup(dom.successPopup);
 const menu = document.querySelector('.menu');
 
 
@@ -22,19 +19,35 @@ const menu = document.querySelector('.menu');
 //   dom.burgerButton.classList.toggle('burger-button_is-open');
 //   menu.classList.toggle('menu_is-open');
 // })
-// dom.signupLink.addEventListener('click', (e) => {
-//   e.preventDefault();
-//   signupPopup.open();
-// });
-// dom.signinLink.addEventListener('click', (e) => {
-//   e.preventDefault();
-//   signinPopup.open();
-// });
+dom.signupLink.addEventListener('click', (e) => {
+  e.preventDefault();
+  signupPopup.close();
+  signupPopup.open();
+});
+dom.signupForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const credentials = {
+    email: e.target.elements.email.value,
+    password: e.target.elements.password.value,
+    name: e.target.elements.name.value,
+  }
+  api.signup(credentials)
+    .then(res => {
+      signupPopup.close();
+      successPopup.open();
+    })
+    .catch(err => console.log(err));
+})
+dom.signinLink
+  .forEach(element => element.addEventListener('click', (e) => {
+    e.preventDefault();
+    signinPopup.open();
+  }))
 
 //-------
 
 let isLoggedIn = false;
-
+// news api params
 const params = {
   language: 'ru',
   sortBy: 'publishedAt',
@@ -53,24 +66,18 @@ const news = new NewsApi({query, params, apiKey});
 copyright.textContent = `© ${new Date().getFullYear()} Supersite, Powered by News AP`;
 
 //---
-// const btn = document.querySelector('#signin')
-// console.log(btn.textContent);
-// btn.textContent = 'Name'
 const url = {baseUrl: 'http://localhost:3000'};
 const api = new MainApi(url);
-// const button = new AuthButton;
-const header = new Header(dom.headerArea, signinPopup, api);
+const header = new Header({
+  headerArea: dom.headerArea,
+  popup: signinPopup,
+  api
+});
 //
-// header.render({isLoggedIn, name});
-// header.logout();
+
 isLoggedIn = false
 header.render(isLoggedIn);
-// header.render(isLoggedIn);
 
-// document.querySelector('.nav__button')
-//   .addEventListener('click', () => {
-//   signinPopup.open();
-// });
 const loginForm = document.querySelector('.popup__form_login');
 loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
