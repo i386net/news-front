@@ -54,7 +54,9 @@ export default class Popup extends BaseComponent {
 
   _closeHandler() {
     this._popup.classList.remove('popup_is-opened');
-    this._form.reset();
+    if(this._form) {
+      this._form.reset();
+    };
     this._clearListeners();
   }
 
