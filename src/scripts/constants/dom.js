@@ -10,4 +10,11 @@ export default {
   signinLink: document.querySelectorAll('.popup__link_type_login'),
   copyright: document.querySelector('.footer__copyright-container'),
   signupForm: document.querySelector('.popup__form_signup'),
+  copyrightElement: document.querySelector('.footer__copyright-container'),
+  loginForm: document.querySelector('.popup__form_login'),
+  searchForm: document.querySelector('.search__form'),
+  showMoreButton: document.querySelector('.articles__button'),
+  preloader: document.querySelector('.preloader'),
+  notFoundElement: document.querySelector('.not-found'),
+  articlesElement: document.querySelector('.articles'),
 }
