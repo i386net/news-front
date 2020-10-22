@@ -8,8 +8,6 @@ export default class Header extends  BaseComponent {
     this.api = api;
     this.session = session;
     this.desktopButton = document.createElement('button');
-    this.mobileButton = document.querySelector('.burger-button');
-    this.mobileMenu = document.querySelector('.menu');
     this.mobileAuthButton = document.querySelector('.menu__button');
     this.isLoggedIn = null;
     this.name  = null;
@@ -127,26 +125,6 @@ export default class Header extends  BaseComponent {
       {
         element: this.desktopButton,
         event: 'click',
-        // callback: () => {
-        //   if(this.desktopButton.classList.contains('logged-in')) {
-        //     this.api.signout()
-        //       .then(data => {
-        //         if (data.status === 200) {
-        //           this.session.clear();
-        //           this.isLoggedIn = this.session.get().isLoggedIn;
-        //           this.render(this.isLoggedIn);
-        //           this.desktopButton.classList.remove('logged-in');
-        //           // if(!window.location.pathname === '/') {
-        //           //   window.location.href = '/';
-        //           // }
-        //           window.location.href = '/';
-        //         } else {
-        //           return Promise.reject(new Error('При выходе произошла ошибка!'))
-        //         }
-        //       })
-        //       .catch(err => console.log(err));
-        //   }
-        // }
         callback: () => this._logout(this.desktopButton),
       },
       {
@@ -154,14 +132,6 @@ export default class Header extends  BaseComponent {
         event: 'click',
         callback: () => this._logout(this.mobileAuthButton),
       },
-      // {
-      //   element: this.mobileButton,
-      //   event: 'click',
-      //   callback: () => {
-      //     this.mobileButton.classList.toggle('burger-button_is-open');
-      //     this.mobileMenu.classList.toggle('menu_is-open');
-      //   },
-      // },
       {
         element: this.mobileAuthButton,
         event: 'click',
