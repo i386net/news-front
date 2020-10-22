@@ -17,7 +17,6 @@ export default class NewsApi {
       + `language=${this.language}&`
       + `sortBy=${this.sortBy}&`
       + `pageSize=${this.pageSize}`;
-
     return fetch(this.url, {
       method: 'GET',
       headers: {
@@ -30,6 +29,7 @@ export default class NewsApi {
         }
         return res.json();
       })
+      .catch(err => Promise.reject(err))
   }
 
   _getDate() {
