@@ -3,7 +3,6 @@ export default class MainApi {
     this.options = options;
   }
   resParse(res) {
-    console.log(res)
     if (res.ok) {
       return res.json();
     }
