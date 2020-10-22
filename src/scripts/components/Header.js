@@ -1,12 +1,16 @@
 import BaseComponent from './BaseComponent';
 
 export default class Header extends  BaseComponent {
-  constructor({headerArea, popup, api}) {
+  constructor({ headerArea, popup, api, session }) {
     super();
     this.headerArea = headerArea;
     this.popup = popup;
     this.api = api;
-    this.button = document.createElement('button');
+    this.session = session;
+    this.desktopButton = document.createElement('button');
+    this.mobileButton = document.querySelector('.burger-button');
+    this.mobileMenu = document.querySelector('.menu');
+    this.mobileAuthButton = document.querySelector('.menu__button');
     this.isLoggedIn = null;
     this.name  = null;
   }
@@ -15,32 +19,34 @@ export default class Header extends  BaseComponent {
   render(isLoggedIn, name='') {
     this.name = name;
     this.isLoggedIn = isLoggedIn;
-    this.button = this._renderButton(name);
+    this.desktopButton = this._renderButton(name);
+    this._renderMobileAuthButton(name);
     this.headerArea.querySelector('.auth-button')
-      .insertAdjacentElement('beforeend', this.button);
-
+      .insertAdjacentElement('beforeend', this.desktopButton);
     if(name) {
       this.headerArea.querySelector('.nav__main')
         .insertAdjacentHTML('afterend', this._addArticlesLink().nav);
-      // this.menuLink.insertAdjacentHTML('afterend', this._addArticlesLink().menu);
+      this.headerArea.querySelector('.menu__main')
+        .insertAdjacentHTML('afterend', this._addArticlesLink().menu);
     } else {
       this._removeArticlesLink();
-    };
+    }
     if(name) {
-      this.button.classList.add('logged-in')
+      this.desktopButton.classList.add('logged-in')
+      this.mobileAuthButton.classList.add('logged-in');
     }
     this._setEventListeners();
   }
 
   _renderButton(name) {
-    this.button.textContent = '';
-    this.button.classList.add(
+    this.desktopButton.textContent = '';
+    this.desktopButton.classList.add(
       'button',
       'button_theme_dark',
       'button_size_m',
       'nav__button'
     );
-    this.button.insertAdjacentHTML('' +
+    this.desktopButton.insertAdjacentHTML(
       'beforeend',
       `
       <span class="auth-text">${name? name : 'Авторизоваться'}</span>
@@ -48,7 +54,23 @@ export default class Header extends  BaseComponent {
         <path fill-rule="evenodd" clip-rule="evenodd" d="M10 6L6 6L6 18H10V20H6C4.89543 20 4 19.1046 4 18V6C4 4.89543 4.89543 4 6 4H10V6ZM17.5856 13L13.2927 17.1339L14.707 18.4958L21.4141 12.0371L14.707 5.57837L13.2927 6.9402L17.5856 11.0741H8V13H17.5856Z"/>
       </svg>
       `);
-    return this.button;
+    return this.desktopButton;
+  }
+
+  _renderMobileAuthButton(name) {
+    this.mobileAuthButton
+      .querySelector('.auth-text')
+      .textContent = name? name : 'Авторизоваться';
+    if(name) {
+      this.mobileAuthButton
+        .querySelector('.button__ico')
+        .classList.remove('button__ico_is-hidden');
+    } else {
+      this.mobileAuthButton
+        .querySelector('.button__ico')
+        .classList.add('button__ico_is-hidden');
+
+    }
   }
 
   _addArticlesLink () {
@@ -69,36 +91,83 @@ export default class Header extends  BaseComponent {
     this.headerArea.querySelectorAll('.articles-link').forEach(articlesLink => articlesLink.remove());
   }
 
+  _logout(button) {
+    if(button.classList.contains('logged-in')) {
+      this.api.signout()
+        .then(data => {
+          if (data.status === 200) {
+            this.session.clear();
+            this.isLoggedIn = this.session.get().isLoggedIn;
+            this.render(this.isLoggedIn);
+            this.desktopButton.classList.remove('logged-in');
+            this.mobileAuthButton.classList.remove('logged-in');
+            // if(!window.location.pathname === '/') {
+            //   window.location.href = '/';
+            // }
+            window.location.href = '/';
+          } else {
+            return Promise.reject(new Error('При выходе произошла ошибка!'))
+          }
+        })
+        .catch(err => console.log(err));
+    }
+  }
+
   _setEventListeners() {
     this._setHandlers([
       {
-        element: this.button,
+        element: this.desktopButton,
         event: 'click',
         callback: () => {
-          if(!this.button.classList.contains('logged-in')) {
+          if(!this.desktopButton.classList.contains('logged-in')) {
             this.popup.open();
           }
         },
       },
       {
-        element: this.button,
+        element: this.desktopButton,
+        event: 'click',
+        // callback: () => {
+        //   if(this.desktopButton.classList.contains('logged-in')) {
+        //     this.api.signout()
+        //       .then(data => {
+        //         if (data.status === 200) {
+        //           this.session.clear();
+        //           this.isLoggedIn = this.session.get().isLoggedIn;
+        //           this.render(this.isLoggedIn);
+        //           this.desktopButton.classList.remove('logged-in');
+        //           // if(!window.location.pathname === '/') {
+        //           //   window.location.href = '/';
+        //           // }
+        //           window.location.href = '/';
+        //         } else {
+        //           return Promise.reject(new Error('При выходе произошла ошибка!'))
+        //         }
+        //       })
+        //       .catch(err => console.log(err));
+        //   }
+        // }
+        callback: () => this._logout(this.desktopButton),
+      },
+      {
+        element: this.mobileAuthButton,
+        event: 'click',
+        callback: () => this._logout(this.mobileAuthButton),
+      },
+      // {
+      //   element: this.mobileButton,
+      //   event: 'click',
+      //   callback: () => {
+      //     this.mobileButton.classList.toggle('burger-button_is-open');
+      //     this.mobileMenu.classList.toggle('menu_is-open');
+      //   },
+      // },
+      {
+        element: this.mobileAuthButton,
         event: 'click',
         callback: () => {
-          if(this.button.classList.contains('logged-in')) {
-            this.api.signout()
-              .then(data => {
-                if (data.status === 200) {
-                  this.isLoggedIn = false;
-                  this.render(this.isLoggedIn);
-                  this.button.classList.remove('logged-in');
-                  if(!window.location.pathname === '/') {
-                    window.location.href = '/';
-                  }
-                } else {
-                  return Promise.reject(new Error('При выходе произошла ошибка!'))
-                }
-              })
-              .catch(err => console.log(err));
+          if(!this.mobileAuthButton.classList.contains('logged-in')) {
+            this.popup.open();
           }
         }
       }
