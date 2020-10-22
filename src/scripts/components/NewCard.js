@@ -8,6 +8,7 @@ export default class NewCard extends BaseComponent {
     this.session = session;
     this.card = document.createElement('div');
     this.bookmark = null;
+    this.bookmarkIcon = null;
     this.trashcan = null;
     this.tooltip = null;
   }
@@ -24,7 +25,11 @@ export default class NewCard extends BaseComponent {
             <div class="article__button article__button_type_alert">
               <p class="article__tooltip">Войдите, чтобы сохранить статьи</p>
             </div>
-            <button class="article__button article__button_type_mark"></button>
+            <button class="article__button article__button_type_mark">
+                <svg class="article__bookmark" width="14" height="19" fill="none" stroke="#B6BCBF" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.382 12.714L1 16.942V1h12v15.942l-5.382-4.228L7 12.228l-.618.486z"  stroke-width="2"/>
+                </svg>
+            </button>
           </div>
           <div class="article__text-container">
             <p class="article__date">${this._dateHandler(this.cardData.date)}</p>
@@ -36,6 +41,7 @@ export default class NewCard extends BaseComponent {
           </div>
     `);
     this.bookmark = this.card.querySelector('.article__button_type_mark');
+    this.bookmarkIcon = this.card.querySelector('.article__bookmark');
     this.tooltip = this.card.querySelector('.article__button_type_alert');
     this._setEventListeners();
     return this.card;
@@ -49,7 +55,8 @@ export default class NewCard extends BaseComponent {
     if (this.session.get().isLoggedIn === 'true') {
       this.api.createArticle(this.cardData)
         .then(() => {
-          this.bookmark.style.backgroundImage = 'url(\'../images/marked.svg\')';
+          this.bookmarkIcon.style.fill = '#2F71E5';
+          this.bookmarkIcon.style.stroke = '#2F71E5';
           this.bookmark.setAttribute('disabled','');
           this._clearListeners();
         })
