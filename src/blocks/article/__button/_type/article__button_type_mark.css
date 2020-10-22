@@ -10,6 +10,6 @@
   background-image: url("../../../../images/hover.svg");
 }
 
-.article__button_type_mark:active {
-  background-image: url("../../../../images/marked.svg");
-}
+/*.article__button_type_mark:active {*/
+/*  !*background-image: url("../../../../images/marked.svg");*!*/
+/*}*/

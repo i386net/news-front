@@ -7,7 +7,7 @@
 }
 
 .article__button-container:hover .article__button_type_alert {
-  display: flex;
+  /*display: flex;*/
   cursor: default;
 }
 
@@ -17,13 +17,13 @@
     right: 8px;
   }
   .article__button-container:hover .article__button_type_alert {
-    display: none;
+    /*display: none;*/
     cursor: default;
   }
 }
 
 @media (max-width: 767px) {
   .article__button-container:hover .article__button_type_alert {
-    display: none;
+    /*display: none;*/
   }
 }
