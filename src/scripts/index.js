@@ -2,23 +2,29 @@ import Popup from './components/Popup';
 import NewsApi from './api/NewsApi';
 import Header from './components/Header';
 import MainApi from './api/MainApi';
+import Session from './utils/Session';
+import ButtonState from './utils/ButtonState';
+import NewsCardList from './components/NewsCardList';
+import NewCard from './components/NewCard';
 import dom from './constants/dom';
+import params from './constants/newsParams';
+import apiKey from './constants/apiKey';
+import copyrightDate from './utils/copyright-date';
 import '../styles/index.css';
 
-const copyright = document.querySelector('.footer__copyright-container');
 
 const signinPopup = new Popup(dom.signinPopup);
 const signupPopup = new Popup(dom.signupPopup);
 const successPopup = new Popup(dom.successPopup);
 const menu = document.querySelector('.menu');
+let isLoggedIn = false;
 
 
-
-// dom.burgerButton.addEventListener('click', e => {
-//   e.preventDefault();
-//   dom.burgerButton.classList.toggle('burger-button_is-open');
-//   menu.classList.toggle('menu_is-open');
-// })
+dom.burgerButton.addEventListener('click', e => {
+  e.preventDefault();
+  dom.burgerButton.classList.toggle('burger-button_is-open');
+  menu.classList.toggle('menu_is-open');
+})
 dom.signupLink.addEventListener('click', (e) => {
   e.preventDefault();
   signupPopup.close();
@@ -32,7 +38,7 @@ dom.signupForm.addEventListener('submit', (e) => {
     name: e.target.elements.name.value,
   }
   api.signup(credentials)
-    .then(res => {
+    .then(() => {
       signupPopup.close();
       successPopup.open();
     })
@@ -44,42 +50,21 @@ dom.signinLink
     signinPopup.open();
   }))
 
-//-------
-
-let isLoggedIn = false;
-// news api params
-const params = {
-  language: 'ru',
-  sortBy: 'publishedAt',
-  pageSize: 100,
-  page: 1
-}
-const query = 'Навальный';
-const apiKey = '5c2ce186b39c4b5e900bf50fe947902d';
-
-const news = new NewsApi({query, params, apiKey});
-// news.getNews()
-//   .then(res => console.log(res.articles))
-//   .catch(err => console.log(err));
-
-// const formatDate = (date) => `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
-copyright.textContent = `© ${new Date().getFullYear()} Supersite, Powered by News AP`;
-
-//---
+copyrightDate();
 const url = {baseUrl: 'http://localhost:3000'};
 const api = new MainApi(url);
+const session = new Session;
 const header = new Header({
   headerArea: dom.headerArea,
   popup: signinPopup,
-  api
+  api,
+  session
 });
-//
 
-isLoggedIn = false
-header.render(isLoggedIn);
+header.render(session.get().isLoggedIn, session.get().name);
 
-const loginForm = document.querySelector('.popup__form_login');
-loginForm.addEventListener('submit', (e) => {
+// const loginForm = document.querySelector('.popup__form_login');
+dom.loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const email = e.currentTarget.elements.email.value;
   const password = e.currentTarget.elements.password.value;
@@ -87,6 +72,7 @@ loginForm.addEventListener('submit', (e) => {
     .then(res => {
       if(res.name) {
         isLoggedIn = true;
+        session.save({ isLoggedIn, name: res.name });
         header.render(isLoggedIn, res.name);
         signinPopup.close();
       }
@@ -95,52 +81,60 @@ loginForm.addEventListener('submit', (e) => {
 
 })
 
-// if(document.querySelector('.loggedin')) {
-//   document.querySelector('.loggedin')
-//     .addEventListener('click', (e) => {
-//       e.preventDefault();
-//       console.log(e);
-//       api.signout()
-//         .then(res => {
-//           if(res.status === 200) {
-//             header.logout();
-//           } else {
-//             return Promise.reject(new Error('При выходе произошла ошибка!'));
-//           }
-//         })
-//         .catch(err => console.log(err));
-//     })
-// }
+const showMoreButtonState = new ButtonState(dom.showMoreButton);
+const newsList = new NewsCardList({
+  api,
+  preloader: dom.preloader,
+  notFoundContainer: dom.notFoundElement,
+  cardsContainer: dom.articlesElement
+})
+const addCard = (articles, query) => {
+  articles.splice(0,3).forEach( article => {
+    const cardData = {
+      keyword: query,
+      title: article.title,
+      image: article.urlToImage === null ? 'https://leeford.in/wp-content/uploads/2017/09/image-not-found.jpg': article.urlToImage,
+      date: article.publishedAt,
+      text: article.description,
+      link: article.url,
+      source: article.source.name,
+    };
+    const card = new NewCard({cardData, session, api});
+    newsList.addCard(card.create());
+  });
+}
+dom.searchForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const query = e.target.elements.search.value;
+  const news = new NewsApi({ query, params, apiKey });
+  newsList.clearResult();
+  showMoreButtonState.enable();
+  news.getNews()
+    .then(res => {
+      const articles = res.articles;
+      if(res.totalResults > 0) {
+        addCard(articles, query);
+      }
+      newsList.renderResult(res.totalResults);
+      dom.showMoreButton.addEventListener('click', () => {
+        addCard(articles, query);
+      });
+      if(articles.length < 1) {
+        showMoreButtonState.disable();
+      } else {
+        showMoreButtonState.enable();
+      }
+    })
+    .catch(err => console.log(err))
+    .finally(dom.preloader.classList.add('preloader_is-opened'));
+})
+
 //api new user
-
-// api.signup({name: 'test-name', email: 'email3@testemail.com', password: 'Efkjds12k323'})
-// .then(res => console.log(res))
-// .catch(err => console.log('error', err));
-
-// api.signin({email: 'email2@testemail.com', password: 'Efkjds12k323'})
-//   .then(res => {
-//     if (res.name) {
-//      isLoggedIn = true;
-//      // header.render({isLoggedIn, name:res.name});
-//     }
-//   })
-//   .catch(err => console.log(err));
 
 // api.getUserData()
 //   .then(res => console.log('user data', res))
 //   .catch(err => console.log('get user', err));
 
-// api.createArticle({
-//   keyword: "test1",
-//   title: "title1",
-//   text: "text1 text1 text1",
-//   link: "http://ya.me/article.html",
-//   date: "date",
-//   source: "source1",
-//   image: "http://ya.ru/img.jpeg"
-// })
-// .then(res => console.log(res))
-// .catch(err => console.log(err));
 
 // api.getArticles()
 //   .then(data => console.log(data))
@@ -150,20 +144,4 @@ loginForm.addEventListener('submit', (e) => {
 //   .then(data => console.log(data))
 //   .catch(err => console.log(err));
 
-
-
-// api.signout()
-//   .then(data => {
-//     if (data.status === 200) {
-//       // isLoggedIn = false
-//       // header.render({isLoggedIn, name: ''});
-//       header.logout();
-//     } else {
-//
-//       return Promise.reject(new Error('При выходе произошла ошибка!'));
-//     }
-//
-//     // window.location.href = '/articles.html';
-//   })
-//   .catch(err => console.log(err));
 
