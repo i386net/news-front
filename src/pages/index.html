@@ -136,7 +136,7 @@
   <section class="not-found ">
     <img src="<%=require('../images/not-found.png').default%>" alt="Ничего не найдено" class="not-found__img">
     <h3 class="title title_size_s">Ничего не найдено</h3>
-    <p class="subtitle subtitle_theme_light not-found__subtitle">К сожадению по вашему вопросу ничего не найдено</p>
+    <p class="subtitle subtitle_theme_light not-found__subtitle">К сожалению по вашему вопросу ничего не найдено</p>
   </section>
 <!--preloader_is-opened-->
   <section class="preloader ">
@@ -197,7 +197,9 @@
           placeholder="Введите почту"
           required
         />
-        <span class="error-message error-message_is-opened">Неправильный формат email</span>
+        <span class="error-message error-message_is-opened error-email">
+<!--          Неправильный формат email-->
+        </span>
         <span class="popup__subtitle">Пароль</span>
         <input
           type="password"
@@ -205,10 +207,16 @@
           id="signin-password"
           class="popup__input popup__input_type_password"
           placeholder="Введите пароль"
+          autocomplete="current-password"
+          minlength="8"
+          maxlength="32"
           required
         />
-        <span class="error-message error-message_is-opened">Неправильный формат пароля</span>
-        <button type="submit" class="button button_size_xl button_state_active popup__button">Войти</button>
+        <span class="error-message error-message_is-opened error-password">
+<!--          Неправильный формат пароля-->
+        </span>
+        <span class="error-message error-message_is-centered server-error">Test</span>
+        <button type="submit" class="button button_size_xl button_state_active popup__button" disabled>Войти</button>
         <p class="popup__text">или <a href="#" class="popup__link popup__link_type_reg">Зарегистрироваться</a></p>
       </form>
     </div>
@@ -228,7 +236,9 @@
           placeholder="Введите почту"
           required
         />
-        <span id="error-email" class="error-message error-message_is-opened">Неправильный формат email</span>
+        <span id="error-email" class="error-message error-message_is-opened error-email">
+          Неправильный формат email
+        </span>
         <span class="popup__subtitle">Пароль</span>
         <input
           type="password"
@@ -238,7 +248,9 @@
           placeholder="Введите пароль"
           required
         />
-        <span id="error-password" class="error-message error-message_is-opened">Неправильный формат пароля</span>
+        <span id="error-password" class="error-message error-message_is-opened error-password">
+          Неправильный формат пароля
+        </span>
 
         <span class="popup__subtitle">Имя</span>
         <input
@@ -249,8 +261,12 @@
           placeholder="Введите имя"
           required
         />
-        <span id="error-name" class="error-message error-message_is-opened">Неправильный формат имени</span>
-        <span class="error-message error-message_is-centered error-message_is-opened" id="user-exists">Такой пользователь уже есть</span>
+        <span id="error-name" class="error-message error-message_is-opened error-name">
+          Неправильный формат имени
+        </span>
+        <span class="error-message error-message_is-centered error-message_is-opened" id="user-exists">
+          Такой пользователь уже есть
+        </span>
 
         <button id="register" type="submit" class="button button_size_xl popup__button button_state_active">Зарегистрироваться</button>
         <p class="popup__text">или <a href="" class="popup__link popup__link_type_login">Войти</a></p>
