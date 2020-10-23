@@ -34,7 +34,7 @@ export default class MainApi {
           return Promise.resolve(res.status);
         }
         if (res.status === 409) {
-          return Promise.reject(new Error ('Пользователь с этими уже зарегистрирован!'));
+          return Promise.reject(new Error ('Такой пользователь уже есть!'));
         }
         if (res.status === 400) {
           return  Promise.reject(new Error ('Ошибка запроса'));
