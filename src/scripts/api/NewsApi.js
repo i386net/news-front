@@ -33,13 +33,17 @@ export default class NewsApi {
   }
 
   _getDate() {
-    const to = new Date();
     const initialDate = () => {
       const result = new Date();
       result.setDate(result.getDate() - 7);
-      return result;
+      return `${result.getFullYear()}-${result.getMonth()+1}-${result.getDate()}`;
+    }
+    const currentDate = () => {
+      const result = new Date();
+      return `${result.getFullYear()}-${result.getMonth()+1}-${result.getDate()}`;
     }
     const from = initialDate();
+    const to = currentDate();
     return {from: from, to: to};
   }
 }
