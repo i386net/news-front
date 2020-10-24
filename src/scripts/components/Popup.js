@@ -1,7 +1,7 @@
 import BaseComponent from './BaseComponent';
 
 export default class Popup extends BaseComponent {
-  constructor(popup, form='') {
+  constructor({popup, form}) {
     super();
     this._popup = popup;
     this._closeButton = this._popup.querySelector('.popup__close');
