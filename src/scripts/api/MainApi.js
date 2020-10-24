@@ -9,13 +9,6 @@ export default class MainApi {
     return Promise.reject(new Error(res.status));
   }
 
-  // signup регистрирует нового пользователя;
-  // signin аутентифицирует пользователя на основе почты и пароля;
-  // getUserData возвращает информацию о пользователе;
-  // getArticles забирает все статьи;
-  // createArticle создаёт статью;
-  // removeArticle удаляет статью.
-
   signup (credentials) {
     return fetch(`${this.options.baseUrl}/signup`, {
       method: 'POST',

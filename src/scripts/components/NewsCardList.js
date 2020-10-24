@@ -1,6 +1,6 @@
 export default class NewsCardList {
-  constructor({ api, cardsContainer, notFoundContainer, preloader }) {
-   this.api = api;
+  constructor({ cardsContainer, notFoundContainer, preloader }) {
+   // this.api = api;
    this.cardsContainer = cardsContainer;
    this.notFoundContainer = notFoundContainer;
    this.preloader = preloader;

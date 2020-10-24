@@ -12,7 +12,7 @@ export default class Session {
   }
 
   clear() {
-    this.isLoggedIn = false;
+    this.isLoggedIn = '';
     this.name = '';
     console.log('clear log', this.isLoggedIn);
     console.log('clear name', this.name);
