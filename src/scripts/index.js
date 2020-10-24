@@ -15,23 +15,44 @@ import '../styles/index.css';
 
 const signupValidation = new Form(dom.signupForm);
 const signinValidation = new Form(dom.loginForm);
-const signinPopup = new Popup(dom.signinPopup, signinValidation);
-const signupPopup = new Popup(dom.signupPopup, signupValidation);
-const successPopup = new Popup(dom.successPopup);
+const signinPopup = new Popup({popup: dom.signinPopup, signinValidation});
+const signupPopup = new Popup({popup: dom.signupPopup, signupValidation});
+const successPopup = new Popup({popup: dom.successPopup});
 const menu = document.querySelector('.menu');
 let isLoggedIn = false;
+const url = {baseUrl: 'http://localhost:3000'}; //todo move to constants
+const api = new MainApi(url);
+const session = new Session;
+const header = new Header({
+  headerArea: dom.headerArea,
+  popup: signinPopup,
+  api,
+  session
+});
+const showMoreButtonState = new ButtonState(dom.showMoreButton);
+const newsList = new NewsCardList({
+  api,
+  preloader: dom.preloader,
+  notFoundContainer: dom.notFoundElement,
+  cardsContainer: dom.articlesElement
+})
 
+
+header.render(session.get().isLoggedIn, session.get().name);
+copyrightDate();
 
 dom.burgerButton.addEventListener('click', e => {
   e.preventDefault();
   dom.burgerButton.classList.toggle('burger-button_is-open');
   menu.classList.toggle('menu_is-open');
 })
+
 dom.signupLink.addEventListener('click', (e) => {
   e.preventDefault();
   signupPopup.close();
   signupPopup.open();
 });
+
 dom.signupForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const credentials = {
@@ -48,26 +69,13 @@ dom.signupForm.addEventListener('submit', (e) => {
       signupValidation.renderServerError(err);
     });
 })
+
 dom.signinLink
   .forEach(element => element.addEventListener('click', (e) => {
     e.preventDefault();
     signinPopup.open();
   }))
 
-copyrightDate();
-const url = {baseUrl: 'http://localhost:3000'};
-const api = new MainApi(url);
-const session = new Session;
-const header = new Header({
-  headerArea: dom.headerArea,
-  popup: signinPopup,
-  api,
-  session
-});
-
-header.render(session.get().isLoggedIn, session.get().name);
-// signinValidation.buttonState(false);
-// const loginForm = document.querySelector('.popup__form_login');
 dom.loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const email = e.currentTarget.elements.email.value;
@@ -87,13 +95,6 @@ dom.loginForm.addEventListener('submit', (e) => {
 
 })
 
-const showMoreButtonState = new ButtonState(dom.showMoreButton);
-const newsList = new NewsCardList({
-  api,
-  preloader: dom.preloader,
-  notFoundContainer: dom.notFoundElement,
-  cardsContainer: dom.articlesElement
-})
 const addCard = (articles, query) => {
   articles.splice(0,3).forEach( article => {
     const cardData = {
