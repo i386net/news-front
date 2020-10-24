@@ -8,14 +8,9 @@ export default class Form {
     this._setEventListeners = this._setEventListeners.bind(this);
     this.form.addEventListener('input', this._setEventListeners);
     this.serverError = false;
+    this.serverErrorElement = this.form.querySelector('.server-error');
   }
   _checkInputValidity(element) {
-    // if(this.serverError) {
-    //   this.form
-    //     .querySelector('.server-error')
-    //     .classList
-    //     .remove('error-message_is-opened');
-    // }
     const errorElement = element.nextElementSibling;
     if(element.validity.typeMismatch) {
       if(!validator.isEmail(element.value)) {
@@ -42,18 +37,10 @@ export default class Form {
     element.classList.add('error-message_is-opened');
   }
 
-  // _resetServerError() {
-  //   if(this.form.querySelector('.server-error').classList.contains('error-message_is-opened')){
-  //     this.form.querySelector('.server-error').classList.remove('error-message_is-opened')
-  //   }
-  // }
-
   renderServerError(error) {
-    this.form
-      .querySelector('.server-error')
-      .classList.add('error-message_is-opened');
-    this.form.querySelector('.server-error').textContent = error;
-    this._reset();
+    this.serverErrorElement.classList.add('error-message_is-opened');
+    this.serverErrorElement.textContent = error;
+    this.form.reset();
     this.buttonState(false);
     this.serverError = true;
   }
@@ -68,7 +55,11 @@ export default class Form {
     element.classList.remove('error-message_is-opened');
   }
 
-  _reset() {
+  reset() {
+    this.form.querySelectorAll('.error-message_is-opened')
+      .forEach(errorElement => {
+        this._resetError(errorElement);
+      });
     this.form.reset();
   }
 
