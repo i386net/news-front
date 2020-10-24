@@ -15,8 +15,9 @@ import '../styles/index.css';
 
 const signupValidation = new Form(dom.signupForm);
 const signinValidation = new Form(dom.loginForm);
-const signinPopup = new Popup({popup: dom.signinPopup, signinValidation});
-const signupPopup = new Popup({popup: dom.signupPopup, signupValidation});
+// const searchValidation = new Form(dom.searchForm);
+const signinPopup = new Popup({popup: dom.signinPopup, form: signinValidation});
+const signupPopup = new Popup({popup: dom.signupPopup, form: signupValidation});
 const successPopup = new Popup({popup: dom.successPopup});
 const menu = document.querySelector('.menu');
 let isLoggedIn = false;
@@ -110,9 +111,15 @@ const addCard = (articles, query) => {
     newsList.addCard(card.create());
   });
 }
+
 dom.searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const query = e.target.elements.search.value;
+  if(!query) {
+    dom.searchInput.classList.add('search__input_error');
+    setTimeout(() => dom.searchInput.classList.remove('search__input_error'),500);
+    return;
+  }
   const news = new NewsApi({ query, params, apiKey });
   newsList.clearResult();
   showMoreButtonState.enable();
