@@ -6,15 +6,17 @@ import Session from './utils/Session';
 import ButtonState from './utils/ButtonState';
 import NewsCardList from './components/NewsCardList';
 import NewCard from './components/NewCard';
+import Form from './components/Form';
 import dom from './constants/dom';
 import params from './constants/newsParams';
 import apiKey from './constants/apiKey';
 import copyrightDate from './utils/copyright-date';
 import '../styles/index.css';
 
-
-const signinPopup = new Popup(dom.signinPopup);
-const signupPopup = new Popup(dom.signupPopup);
+const signupValidation = new Form(dom.signupForm);
+const signinValidation = new Form(dom.loginForm);
+const signinPopup = new Popup(dom.signinPopup, signinValidation);
+const signupPopup = new Popup(dom.signupPopup, signupValidation);
 const successPopup = new Popup(dom.successPopup);
 const menu = document.querySelector('.menu');
 let isLoggedIn = false;
@@ -42,7 +44,9 @@ dom.signupForm.addEventListener('submit', (e) => {
       signupPopup.close();
       successPopup.open();
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      signupValidation.renderServerError(err);
+    });
 })
 dom.signinLink
   .forEach(element => element.addEventListener('click', (e) => {
@@ -62,7 +66,7 @@ const header = new Header({
 });
 
 header.render(session.get().isLoggedIn, session.get().name);
-
+// signinValidation.buttonState(false);
 // const loginForm = document.querySelector('.popup__form_login');
 dom.loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -77,7 +81,9 @@ dom.loginForm.addEventListener('submit', (e) => {
         signinPopup.close();
       }
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      signinValidation.renderServerError(err);
+    });
 
 })
 
