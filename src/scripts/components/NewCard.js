@@ -47,8 +47,33 @@ export default class NewCard extends BaseComponent {
     return this.card;
   }
 
-  renderArticle() {
-
+  createSavedCard() {
+    this.card.classList.add('article');
+    this.card.insertAdjacentHTML('beforeend',
+      `
+      <img src="${this.cardData.image}" alt="${this.cardData.title}" class="article__img">
+          <div class="article__button-container">
+            <div class="article__button article__button_type_alert">
+              <p class="article__tooltip">Убрать из сохранённых</p>
+            </div>
+            <div class="article__button article__button_type_trash"></div>
+          </div>
+          <p class="article__tag">
+            ${this.cardData.keyword}
+          </p>
+          <div class="article__text-container">
+            <p class="article__date">${this.cardData.date}</p>
+            <h3 class="title title_size_s article__title">${this.cardData.title}</h3>
+            <p class="article__text">
+              ${this.cardData.text}
+            </p>
+            <a href="" class="title title_size_xs article__link">${this.cardData.source}</a>
+          </div>
+      `);
+    this.trashcan = this.card.querySelector('.article__button_type_trash');
+    this.tooltip = this.card.querySelector('.article__button_type_alert');
+    this._setEventListeners();
+    return this.card;
   }
 
   _save() {
@@ -65,7 +90,15 @@ export default class NewCard extends BaseComponent {
   }
 
   _delete() {
-
+    const result = confirm('Удалить статью?');
+    if (result) {
+      this.api.removeArticle(this.cardData.id)
+        .then(() => {
+          this._clearListeners();
+          this.card.remove();
+        })
+        .catch(err => console.log(err));
+    }
   }
 
   _dateHandler(dateString) {
@@ -80,33 +113,13 @@ export default class NewCard extends BaseComponent {
       return outputDate.join(' ');
   }
 
-  // _imgHandler(img) {
-  // // todo remove this
-  // //   console.log('!!!');
-  // //   img.onerror = "";
-  // //   img.src = "https://teploelement.ru/images/not_found.jpg";
-  // //   return true;
-  //   if (img === null) {
-  //     return 'https://teploelement.ru/images/not_found.jpg';
-  //   }
-  //   const req = new XMLHttpRequest();
-  //   req.open('GET', img);
-  //   req.send();
-  //   req.onload = () => {
-  //     if(req.status != 200) {
-  //       console.log('not 200')
-  //       return 'https://teploelement.ru/images/not_found.jpg';
-  //     } else {
-  //       console.log('200')
-  //       return img;
-  //     }
-  //   }
-  // }
-
   _mouseOver() {
-    if((this.session.get().isLoggedIn === 'false' ||
-      this.session.get().isLoggedIn === null) &&
+    if(this.session.get().isLoggedIn &&
       window.innerWidth > 1439) {
+      this.tooltip.style.display = 'flex';
+      setTimeout(() => this.tooltip.style.display = "none", 900);
+    }
+    if(window.location.pathname === '/articles.html') {
       this.tooltip.style.display = 'flex';
       setTimeout(() => this.tooltip.style.display = "none", 900);
     }
@@ -126,6 +139,16 @@ export default class NewCard extends BaseComponent {
         element: this.bookmark,
         event: 'click',
         callback: () => this._save(),
+      },
+      {
+        element: this.trashcan,
+        event: 'click',
+        callback: () => this._delete(),
+      },
+      {
+        element: this.trashcan,
+        event: 'mouseover',
+        callback: () => this._mouseOver(),
       },
     ])
   }
