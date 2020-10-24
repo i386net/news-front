@@ -17,4 +17,5 @@ export default {
   preloader: document.querySelector('.preloader'),
   notFoundElement: document.querySelector('.not-found'),
   articlesElement: document.querySelector('.articles'),
+  searchInput: document.querySelector('.search__input'),
 }
