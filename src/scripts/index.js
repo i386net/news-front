@@ -19,7 +19,7 @@ const signinValidation = new Form(dom.loginForm);
 const signinPopup = new Popup({popup: dom.signinPopup, form: signinValidation});
 const signupPopup = new Popup({popup: dom.signupPopup, form: signupValidation});
 const successPopup = new Popup({popup: dom.successPopup});
-const menu = document.querySelector('.menu');
+// const menu = document.querySelector('.menu');
 let isLoggedIn = false;
 const url = {baseUrl: 'http://localhost:3000'}; //todo move to constants
 const api = new MainApi(url);
@@ -28,11 +28,12 @@ const header = new Header({
   headerArea: dom.headerArea,
   popup: signinPopup,
   api,
-  session
+  session,
+  theme: 'dark'
 });
 const showMoreButtonState = new ButtonState(dom.showMoreButton);
 const newsList = new NewsCardList({
-  api,
+  // api,
   preloader: dom.preloader,
   notFoundContainer: dom.notFoundElement,
   cardsContainer: dom.articlesElement
@@ -45,7 +46,7 @@ copyrightDate();
 dom.burgerButton.addEventListener('click', e => {
   e.preventDefault();
   dom.burgerButton.classList.toggle('burger-button_is-open');
-  menu.classList.toggle('menu_is-open');
+  dom.mobileMenu.classList.toggle('menu_is-open');
 })
 
 dom.signupLink.addEventListener('click', (e) => {
@@ -149,13 +150,5 @@ dom.searchForm.addEventListener('submit', (e) => {
 //   .then(res => console.log('user data', res))
 //   .catch(err => console.log('get user', err));
 
-
-// api.getArticles()
-//   .then(data => console.log(data))
-//   .catch(err => console.log(err));
-
-// api.removeArticle('5f7efae7b0a0cab25c5805d1')
-//   .then(data => console.log(data))
-//   .catch(err => console.log(err));
 
 
