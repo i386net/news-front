@@ -64,7 +64,7 @@
       <div class="search__container">
         <h1 class="title title_size_l search__title">Что в мире творится?</h1>
         <p class="subtitle search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своем личном кабинете.</p>
-        <form class="search__form" name="search">
+        <form class="search__form" name="search" novalidate>
           <input type="text" name="search" class="search__input" placeholder="Введите тему новости" id="newsSearch" required>
           <button class="button button_state_active button_size_s search__button">Искать</button>
         </form>
@@ -249,6 +249,8 @@
           class="popup__input popup__input_type_password"
           placeholder="Введите пароль"
           autocomplete="new-password"
+          minlength="8"
+          maxlength="32"
           required
         />
         <span id="error-password" class="error-message error-message_is-opened error-password">
@@ -263,6 +265,8 @@
           class="popup__input popup__input_type_name"
           placeholder="Введите имя"
           autocomplete="name"
+          minlength="2"
+          maxlength="32"
           required
         />
         <span id="error-name" class="error-message error-message_is-opened error-name">
