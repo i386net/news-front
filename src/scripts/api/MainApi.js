@@ -34,17 +34,17 @@ export default class MainApi {
           return Promise.resolve(res.status);
         }
         if (res.status === 409) {
-          return Promise.reject(new Error ('Такой пользователь уже есть!'));
+          return Promise.reject('Такой пользователь уже есть!');
         }
         if (res.status === 400) {
-          return  Promise.reject(new Error ('Ошибка запроса'));
+          return  Promise.reject('Ошибка запроса');
         }
         if (res.status === 429) {
-          return Promise.reject(new Error(res.statusText))
+          return Promise.reject(res.statusText)
         }
-        return Promise.reject(new Error(res.status));
+        return Promise.reject(res.status);
       })
-      .catch((err) => Promise.reject(new Error(err)));
+      .catch((err) => Promise.reject(err));
   }
 
   signin(credentials) {
@@ -66,7 +66,7 @@ export default class MainApi {
         }
         return Promise.reject(new Error('Данные пользователя неверные!'))
       })
-      .catch(err => Promise.reject(new Error(err.message)));
+      .catch(err => Promise.reject(err.message));
   }
 
   signout() {
