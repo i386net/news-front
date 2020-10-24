@@ -4,7 +4,9 @@ export default class BaseComponent {
     this._addListener = this._addListener.bind(this);
   }
   _addListener({element, event, callback}) {
-    element.addEventListener(event, callback);
+    if(element && event && callback) {
+      element.addEventListener(event, callback);
+    }
   }
   _setHandlers(listeners) {
     listeners.forEach(listener => {
@@ -15,7 +17,9 @@ export default class BaseComponent {
   _clearListeners() {
     this._listeners.forEach((listener => {
       const {element, event, callback} = listener;
-      element.removeEventListener(event, callback);
+      if(element && event && callback) {
+        element.removeEventListener(event, callback);
+      }
     }))
     this._listeners = [];
   }
