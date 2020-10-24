@@ -1,5 +1,6 @@
 import validator from 'validator/es';
 import errors from '../constants/errors';
+import options from '../constants/validationOptions'
 
 export default class Form {
   constructor(form) {
@@ -12,10 +13,8 @@ export default class Form {
   }
   _checkInputValidity(element) {
     const errorElement = element.nextElementSibling;
-    if(element.validity.typeMismatch) {
-      if(!validator.isEmail(element.value)) {
-        errorElement.textContent = errors.email;
-      }
+    if(element.name === 'email' && !validator.isEmail(element.value, options.email)) {
+      errorElement.textContent = errors.email;
       this._activateError(errorElement);
       return false;
     }
@@ -29,6 +28,10 @@ export default class Form {
       this._activateError(errorElement);
       return false
     }
+    // if(element.name === 'search' && element.validity.valueMissing){
+    //   console.log('searching!')
+    //   return false
+    // }
     this._resetError(errorElement);
     return true;
   }
@@ -64,12 +67,14 @@ export default class Form {
   }
 
   buttonState(validity) {
-    if(!validity) {
-      this.button.setAttribute('disabled','');
-      this.button.classList.remove('button_state_active');
-    } else {
-      this.button.removeAttribute('disabled');
-      this.button.classList.add('button_state_active');
+    if(this.button){
+      if(!validity) {
+        this.button.setAttribute('disabled','');
+        this.button.classList.remove('button_state_active');
+      } else {
+        this.button.removeAttribute('disabled');
+        this.button.classList.add('button_state_active');
+      }
     }
   }
 
