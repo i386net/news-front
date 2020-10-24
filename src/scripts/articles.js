@@ -1,14 +1,51 @@
 import '../styles/articles.css';
+import Header from './components/Header';
+import MainApi from './api/MainApi';
+import Session from './utils/Session';
+import Info from './components/Info';
+import NewsCardList from './components/NewsCardList';
+import NewCard from './components/NewCard';
+import dom from './constants/dom';
+import copyrightDate from './utils/copyright-date';
+import '../styles/index.css';
+const url = {baseUrl: 'http://localhost:3000'}; //todo move to constants
+const session = new Session;
+const api = new MainApi(url);
+const header = new Header({headerArea: dom.headerArea, api, session, theme: 'light'});
+const info = new Info({api, session, element: dom.infoElement});
+const articlesGrid = new NewsCardList({cardsContainer: dom.articlesElement});
 
-const copyright = document.querySelector('.footer__copyright-container');
-const menu = document.querySelector('.menu');
-// const menuButton = document.querySelector('.menu__button');
-const burgerButton = document.querySelector('.burger-button');
-
-copyright.textContent = `© ${new Date().getFullYear()} Supersite, Powered by News AP`;
-
-burgerButton.addEventListener('click', evt => {
-  evt.preventDefault();
-  burgerButton.classList.toggle('burger-button_is-open');
-  menu.classList.toggle('menu_is-open');
+header.render(session.get().isLoggedIn, session.get().name);
+copyrightDate();
+info.render();
+dom.burgerButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  dom.burgerButton.classList.toggle('burger-button_is-open');
+  dom.mobileMenu.classList.toggle('menu_is-open');
 })
+
+
+if(session.get().isLoggedIn) {
+  api.getArticles()
+    .then(res => {
+      const articles = res.data;
+      articles.forEach(article => {
+        const cardData = {
+          keyword: article.keyword,
+          title: article.title,
+          image: article.image,
+          date: article.date,
+          text: article.text,
+          link: article.link,
+          source: article.source,
+          id: article._id,
+        }
+        const card = new NewCard({cardData, api, session});
+        articlesGrid.addCard(card.createSavedCard())
+      });
+
+    })
+    .catch(err => console.log(err));
+}
+
+
