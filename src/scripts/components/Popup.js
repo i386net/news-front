@@ -1,11 +1,11 @@
 import BaseComponent from './BaseComponent';
 
 export default class Popup extends BaseComponent {
-  constructor(popup) {
+  constructor(popup, form='') {
     super();
     this._popup = popup;
     this._closeButton = this._popup.querySelector('.popup__close');
-    this._form = this._popup.querySelector('.popup__form');
+    this._form = form;
     this._close = this._close.bind(this);
   }
 
@@ -14,17 +14,17 @@ export default class Popup extends BaseComponent {
       {
         element: this._closeButton,
         event: 'click',
-        callback: e => this._close(e),
+        callback: (e) => this._close(e),
       },
       {
         element: document,
         event: 'keydown',
-        callback: e => this._close(e),
+        callback: (e) => this._close(e),
       },
       {
         element: this._popup,
         event: 'click',
-        callback: e => this._close(e),
+        callback: (e) => this._close(e),
       },
     ]);
   }
@@ -56,7 +56,7 @@ export default class Popup extends BaseComponent {
     this._popup.classList.remove('popup_is-opened');
     if(this._form) {
       this._form.reset();
-    };
+    }
     this._clearListeners();
   }
 
