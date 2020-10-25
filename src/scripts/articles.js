@@ -6,7 +6,7 @@ import Info from './components/Info';
 import NewsCardList from './components/NewsCardList';
 import NewCard from './components/NewCard';
 import dom from './constants/dom';
-import copyrightDate from './utils/copyright-date';
+import copyrightDateHandler from './utils/copyrightDateHandler';
 import '../styles/index.css';
 const url = {baseUrl: 'http://localhost:3000'}; //todo move to constants
 const session = new Session;
@@ -16,7 +16,7 @@ const info = new Info({api, session, element: dom.infoElement});
 const articlesGrid = new NewsCardList({cardsContainer: dom.articlesElement});
 
 header.render(session.get().isLoggedIn, session.get().name);
-copyrightDate();
+copyrightDateHandler();
 info.render();
 dom.burgerButton.addEventListener('click', (e) => {
   e.preventDefault();

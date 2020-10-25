@@ -10,7 +10,7 @@ import Form from './components/Form';
 import dom from './constants/dom';
 import params from './constants/newsParams';
 import apiKey from './constants/apiKey';
-import copyrightDate from './utils/copyright-date';
+import copyrightDateHandler from './utils/copyrightDateHandler';
 import '../styles/index.css';
 
 const signupValidation = new Form(dom.signupForm);
@@ -41,7 +41,7 @@ const newsList = new NewsCardList({
 
 
 header.render(session.get().isLoggedIn, session.get().name);
-copyrightDate();
+copyrightDateHandler();
 
 dom.burgerButton.addEventListener('click', e => {
   e.preventDefault();
