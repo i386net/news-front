@@ -3,22 +3,22 @@ import BaseComponent from './BaseComponent';
 export default class NewCard extends BaseComponent {
   constructor({cardData, api, session}) {
     super();
-    this.cardData = cardData;
-    this.api = api;
-    this.session = session;
-    this.card = document.createElement('div');
-    this.bookmark = null;
-    this.bookmarkIcon = null;
-    this.trashcan = null;
-    this.tooltip = null;
+    this._cardData = cardData;
+    this._api = api;
+    this._session = session;
+    this._card = document.createElement('div');
+    this._bookmark = null;
+    this._bookmarkIcon = null;
+    this._trashcan = null;
+    this._tooltip = null;
   }
 
   create() {
-    this.card.classList.add('article');
-    this.card.insertAdjacentHTML('beforeend', `
+    this._card.classList.add('article');
+    this._card.insertAdjacentHTML('beforeend', `
       <img
-      src="${this.cardData.image}"
-      alt="${this.cardData.title}"
+      src="${this._cardData.image}"
+      alt="${this._cardData.title}"
       class="article__img"
       >
           <div class="article__button-container">
@@ -32,26 +32,26 @@ export default class NewCard extends BaseComponent {
             </button>
           </div>
           <div class="article__text-container">
-            <p class="article__date">${this._dateHandler(this.cardData.date)}</p>
-            <h3 class="title title_size_s article__title">${this.cardData.title}</h3>
+            <p class="article__date">${this._dateHandler(this._cardData.date)}</p>
+            <h3 class="title title_size_s article__title">${this._cardData.title}</h3>
             <p class="article__text">
-              ${this.cardData.text}
+              ${this._cardData.text}
             </p>
-            <a href="${this.cardData.link}" target="_blank" class="title title_size_xs article__link">${this.cardData.source}</a>
+            <a href="${this._cardData.link}" target="_blank" class="title title_size_xs article__link">${this._cardData.source}</a>
           </div>
     `);
-    this.bookmark = this.card.querySelector('.article__button_type_mark');
-    this.bookmarkIcon = this.card.querySelector('.article__bookmark');
-    this.tooltip = this.card.querySelector('.article__button_type_alert');
+    this._bookmark = this._card.querySelector('.article__button_type_mark');
+    this._bookmarkIcon = this._card.querySelector('.article__bookmark');
+    this._tooltip = this._card.querySelector('.article__button_type_alert');
     this._setEventListeners();
-    return this.card;
+    return this._card;
   }
 
   createSavedCard() {
-    this.card.classList.add('article');
-    this.card.insertAdjacentHTML('beforeend',
+    this._card.classList.add('article');
+    this._card.insertAdjacentHTML('beforeend',
       `
-      <img src="${this.cardData.image}" alt="${this.cardData.title}" class="article__img">
+      <img src="${this._cardData.image}" alt="${this._cardData.title}" class="article__img">
           <div class="article__button-container">
             <div class="article__button article__button_type_alert">
               <p class="article__tooltip">Убрать из сохранённых</p>
@@ -59,30 +59,30 @@ export default class NewCard extends BaseComponent {
             <div class="article__button article__button_type_trash"></div>
           </div>
           <p class="article__tag">
-            ${this.cardData.keyword}
+            ${this._cardData.keyword}
           </p>
           <div class="article__text-container">
-            <p class="article__date">${this.cardData.date}</p>
-            <h3 class="title title_size_s article__title">${this.cardData.title}</h3>
+            <p class="article__date">${this._cardData.date}</p>
+            <h3 class="title title_size_s article__title">${this._cardData.title}</h3>
             <p class="article__text">
-              ${this.cardData.text}
+              ${this._cardData.text}
             </p>
-            <a href="" class="title title_size_xs article__link">${this.cardData.source}</a>
+            <a href="" class="title title_size_xs article__link">${this._cardData.source}</a>
           </div>
       `);
-    this.trashcan = this.card.querySelector('.article__button_type_trash');
-    this.tooltip = this.card.querySelector('.article__button_type_alert');
+    this._trashcan = this._card.querySelector('.article__button_type_trash');
+    this._tooltip = this._card.querySelector('.article__button_type_alert');
     this._setEventListeners();
-    return this.card;
+    return this._card;
   }
 
   _save() {
-    if (this.session.get().isLoggedIn === 'true') {
-      this.api.createArticle(this.cardData)
+    if (this._session.get().isLoggedIn === 'true') {
+      this._api.createArticle(this._cardData)
         .then(() => {
-          this.bookmarkIcon.style.fill = '#2F71E5';
-          this.bookmarkIcon.style.stroke = '#2F71E5';
-          this.bookmark.setAttribute('disabled','');
+          this._bookmarkIcon.style.fill = '#2F71E5';
+          this._bookmarkIcon.style.stroke = '#2F71E5';
+          this._bookmark.setAttribute('disabled','');
           this._clearListeners();
         })
         .catch((err) => console.log(err));
@@ -92,10 +92,10 @@ export default class NewCard extends BaseComponent {
   _delete() {
     const result = confirm('Удалить статью?');
     if (result) {
-      this.api.removeArticle(this.cardData.id)
+      this._api.removeArticle(this._cardData.id)
         .then(() => {
           this._clearListeners();
-          this.card.remove();
+          this._card.remove();
         })
         .catch(err => console.log(err));
     }
@@ -114,39 +114,39 @@ export default class NewCard extends BaseComponent {
   }
 
   _mouseOver() {
-    if(this.session.get().isLoggedIn &&
+    if(!this._session.get().isLoggedIn &&
       window.innerWidth > 1439) {
-      this.tooltip.style.display = 'flex';
-      setTimeout(() => this.tooltip.style.display = "none", 900);
+      this._tooltip.style.display = 'flex';
+      setTimeout(() => this._tooltip.style.display = "none", 900);
     }
     if(window.location.pathname === '/articles.html') {
-      this.tooltip.style.display = 'flex';
-      setTimeout(() => this.tooltip.style.display = "none", 900);
+      this._tooltip.style.display = 'flex';
+      setTimeout(() => this._tooltip.style.display = "none", 900);
     }
     if(window.innerWidth <= 1439) {
-      this.tooltip.style.display = "none";
+      this._tooltip.style.display = "none";
     }
   }
 
   _setEventListeners() {
     this._setHandlers([
       {
-        element: this.bookmark,
+        element: this._bookmark,
         event: 'mouseover',
         callback: () => this._mouseOver(),
       },
       {
-        element: this.bookmark,
+        element: this._bookmark,
         event: 'click',
         callback: () => this._save(),
       },
       {
-        element: this.trashcan,
+        element: this._trashcan,
         event: 'click',
         callback: () => this._delete(),
       },
       {
-        element: this.trashcan,
+        element: this._trashcan,
         event: 'mouseover',
         callback: () => this._mouseOver(),
       },
