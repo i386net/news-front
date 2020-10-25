@@ -1,23 +1,21 @@
 export default class Session {
   constructor() {
-    this.name = null;
-    this.isLoggedIn = null
+    this._name = null;
+    this._isLoggedIn = null
   }
 
   save({isLoggedIn, name}) {
-    this.isLoggedIn = isLoggedIn;
-    this.name = name;
-    sessionStorage.setItem('isLoggedIn',this.isLoggedIn);
-    sessionStorage.setItem('userName',this.name);
+    this._isLoggedIn = isLoggedIn;
+    this._name = name;
+    sessionStorage.setItem('isLoggedIn',this._isLoggedIn);
+    sessionStorage.setItem('userName',this._name);
   }
 
   clear() {
-    this.isLoggedIn = '';
-    this.name = '';
-    console.log('clear log', this.isLoggedIn);
-    console.log('clear name', this.name);
-    sessionStorage.setItem('isLoggedIn', this.isLoggedIn);
-    sessionStorage.setItem('userName', this.name);
+    this._isLoggedIn = '';
+    this._name = '';
+    sessionStorage.setItem('isLoggedIn', this._isLoggedIn);
+    sessionStorage.setItem('userName', this._name);
   }
 
   get() {
