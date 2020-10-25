@@ -10,7 +10,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href="<%=require('../images/favicon.png').default%>" type="image/x-icon">
   <title>NewsExplorer</title>
-<!--  <link rel="stylesheet" href="../styles/articles.css">-->
   <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>" />
 </head>
 <body>
@@ -30,7 +29,6 @@
             <li class="menu__item menu__main">
               <a href="./" class="menu__link">Главная</a>
             </li>
-<!--        <li class="menu__item"><a href="./articles.html" class="menu__link">Сохраненные статьи</a></li>-->
           </ul>
           <button class="button button_theme_dark button_size_xs menu__button">
             <span class="auth-text">Авторизоваться</span>
@@ -48,14 +46,7 @@
           <li class="nav__item nav__main">
             <a href="./" class="nav__link nav__link_theme_light">Главная</a>
           </li>
-<!--          <li class="nav__item">-->
-<!--            <a href="./" class="nav__link nav__link_theme_light">Сохраненные статьи</a>-->
-<!--          </li>-->
           <li class="nav__item auth-button">
-<!--            <button class="button button_theme_light button_size_xs">-->
-<!--&lt;!&ndash;              Грета&ndash;&gt;-->
-<!--&lt;!&ndash;              <img src="<%=require('../images/logout.svg').default%>" alt="" class="button__ico">&ndash;&gt;-->
-<!--            </button>-->
           </li>
         </ul>
       </nav>
@@ -64,13 +55,8 @@
     <div class="info">
       <p class="info__subtitle">Сохранённые статьи</p>
       <h2 class="title title_size_m info__title">
-<!--        Грета, у вас 5 сохранённых статей-->
       </h2>
       <p class="info__text keywords">
-<!--        По ключевым словам:-->
-<!--        <span class="keywords__list info__text info__text_emphasized">Природа, Тайга</span>-->
-<!--        и-->
-<!--        <span class="keywords__counter info__text info__text_emphasized">2 другим</span>-->
       </p>
     </div>
   </section>
@@ -78,26 +64,6 @@
   <section class="articles root__articles articles_is-opened">
     <div class="articles__container">
       <div class="articles__grid">
-<!--        <div class="article">-->
-<!--          <img src="<%=require('../images/card.png').default%>" alt="На картинке изображены растения" class="article__img">-->
-<!--          <div class="article__button-container">-->
-<!--            <div class="article__button article__button_type_alert">-->
-<!--              <p class="article__button-text article__button-text_is-dark">Убрать из сохранённых</p>-->
-<!--            </div>-->
-<!--            <div class="article__button article__button_type_trash"></div>-->
-<!--          </div>-->
-<!--          <p class="article__tag">-->
-<!--            Природа-->
-<!--          </p>-->
-<!--          <div class="article__text-container">-->
-<!--            <p class="article__date">2 августа, 2019</p>-->
-<!--            <h3 class="title title_size_s article__title">Национальное достояние – парки</h3>-->
-<!--            <p class="article__text">-->
-<!--              В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.-->
-<!--            </p>-->
-<!--            <a href="" class="title title_size_xs article__link">ЛЕНТА.РУ</a>-->
-<!--          </div>-->
-<!--        </div>-->
       </div>
     </div>
   </section>
@@ -120,7 +86,6 @@
   </footer>
 </div>
 
-<!--<script src="../scripts/articles.js"></script>-->
 <script src="<%= htmlWebpackPlugin.files.js %>"></script>
 </body>
 </html>
