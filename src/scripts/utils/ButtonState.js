@@ -1,13 +1,13 @@
 export default class ButtonState {
   constructor(button) {
-    this.button = button;
+    this._button = button;
   }
 
   disable() {
-    this.button.setAttribute('disabled', '');
+    this._button.setAttribute('disabled', '');
   }
 
   enable() {
-    this.button.removeAttribute('disabled');
+    this._button.removeAttribute('disabled');
   }
 };
