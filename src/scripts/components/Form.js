@@ -4,12 +4,12 @@ import options from '../constants/validationOptions'
 
 export default class Form {
   constructor(form) {
-    this.form = form;
-    this.button = this.form.querySelector('.popup__button');
+    this._form = form;
+    this._button = this._form.querySelector('.popup__button');
     this._setEventListeners = this._setEventListeners.bind(this);
-    this.form.addEventListener('input', this._setEventListeners);
-    this.serverError = false;
-    this.serverErrorElement = this.form.querySelector('.server-error');
+    this._form.addEventListener('input', this._setEventListeners);
+    this._serverError = false;
+    this._serverErrorElement = this._form.querySelector('.server-error');
   }
   _checkInputValidity(element) {
     const errorElement = element.nextElementSibling;
@@ -28,10 +28,6 @@ export default class Form {
       this._activateError(errorElement);
       return false
     }
-    // if(element.name === 'search' && element.validity.valueMissing){
-    //   console.log('searching!')
-    //   return false
-    // }
     this._resetError(errorElement);
     return true;
   }
@@ -41,16 +37,16 @@ export default class Form {
   }
 
   renderServerError(error) {
-    this.serverErrorElement.classList.add('error-message_is-opened');
-    this.serverErrorElement.textContent = error;
-    this.form.reset();
+    this._serverErrorElement.classList.add('error-message_is-opened');
+    this._serverErrorElement.textContent = error;
+    this._form.reset();
     this.buttonState(false);
-    this.serverError = true;
+    this._serverError = true;
   }
 
   _resetError(element) {
-    if(this.serverError) {
-      this.form
+    if(this._serverError) {
+      this._form
         .querySelector('.server-error')
         .classList
         .remove('error-message_is-opened');
@@ -59,27 +55,27 @@ export default class Form {
   }
 
   reset() {
-    this.form.querySelectorAll('.error-message_is-opened')
+    this._form.querySelectorAll('.error-message_is-opened')
       .forEach(errorElement => {
         this._resetError(errorElement);
       });
-    this.form.reset();
+    this._form.reset();
   }
 
   buttonState(validity) {
-    if(this.button){
+    if(this._button){
       if(!validity) {
-        this.button.setAttribute('disabled','');
-        this.button.classList.remove('button_state_active');
+        this._button.setAttribute('disabled','');
+        this._button.classList.remove('button_state_active');
       } else {
-        this.button.removeAttribute('disabled');
-        this.button.classList.add('button_state_active');
+        this._button.removeAttribute('disabled');
+        this._button.classList.add('button_state_active');
       }
     }
   }
 
   _setEventListeners() {
-    const inputs = Array.from(this.form.elements);
+    const inputs = Array.from(this._form.elements);
     let isValidForm = true;
     inputs.forEach(element => {
       if(!element.classList.contains('button')) {
