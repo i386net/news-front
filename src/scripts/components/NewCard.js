@@ -67,7 +67,7 @@ export default class NewCard extends BaseComponent {
             <p class="article__text">
               ${this._cardData.text}
             </p>
-            <a href="" class="title title_size_xs article__link">${this._cardData.source}</a>
+            <a href="${this._cardData.link}" class="title title_size_xs article__link" target="_blank">${this._cardData.source}</a>
           </div>
       `);
     this._trashcan = this._card.querySelector('.article__button_type_trash');
