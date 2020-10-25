@@ -1,6 +1,6 @@
 export default class MainApi {
   constructor(options) {
-    this.options = options;
+    this._options = options;
   }
   resParse(res) {
     if (res.ok) {
@@ -10,7 +10,7 @@ export default class MainApi {
   }
 
   signup (credentials) {
-    return fetch(`${this.options.baseUrl}/signup`, {
+    return fetch(`${this._options.baseUrl}/signup`, {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -41,7 +41,7 @@ export default class MainApi {
   }
 
   signin(credentials) {
-    return fetch(`${this.options.baseUrl}/signin`, {
+    return fetch(`${this._options.baseUrl}/signin`, {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -54,7 +54,6 @@ export default class MainApi {
     })
       .then(res => {
         if (res.ok) {
-          //return Promise.resolve(res.status);
           return res.json();
         }
         return Promise.reject(new Error('Данные пользователя неверные!'))
@@ -63,7 +62,7 @@ export default class MainApi {
   }
 
   signout() {
-    return fetch(`${this.options.baseUrl}/signout`, {
+    return fetch(`${this._options.baseUrl}/signout`, {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -79,7 +78,7 @@ export default class MainApi {
   }
 
   getUserData () {
-    return fetch(`${this.options.baseUrl}/users/me`, {
+    return fetch(`${this._options.baseUrl}/users/me`, {
       method: 'GET',
       credentials: 'include',
     })
@@ -88,7 +87,7 @@ export default class MainApi {
   }
 
   getArticles () {
-    return fetch(`${this.options.baseUrl}/articles`, {
+    return fetch(`${this._options.baseUrl}/articles`, {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -100,7 +99,7 @@ export default class MainApi {
   }
 
   createArticle (article) {
-    return fetch(`${this.options.baseUrl}/articles`, {
+    return fetch(`${this._options.baseUrl}/articles`, {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -120,11 +119,10 @@ export default class MainApi {
     })
       .then(res => this.resParse(res))
       .catch(err => Promise.reject(new Error(err.statusText)));
-
   }
 
   removeArticle (_id) {
-    return fetch(`${this.options.baseUrl}/articles/${_id}`, {
+    return fetch(`${this._options.baseUrl}/articles/${_id}`, {
       method: 'DELETE',
       credentials: 'include',
 
@@ -132,5 +130,4 @@ export default class MainApi {
       .then(res => this.resParse(res))
       .catch(err => Promise.reject(new Error(`Ошибка удаления ${err}`)));
   }
-
 }
