@@ -1,18 +1,10 @@
 .article__button_type_mark {
   width: 40px;
   margin-left: 5px;
-  /*background-image: url("../../../../images/normal.svg");*/
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .article__button_type_mark:hover .article__bookmark {
-  /*background-image: url("../../../../images/hover.svg");*/
   stroke: #1A1B22;
 }
-
-/*.article__button_type_mark:active {*/
-/*  !*background-image: url("../../../../images/marked.svg");*!*/
-/*}*/
-
-/*todo remove commented*/
