@@ -1,26 +1,26 @@
 export default class NewsApi {
   constructor({query, params, apiKey}) {
     ({
-      language: this.language,
-      sortBy: this.sortBy,
-      pageSize: this.pageSize
+      language: this._language,
+      sortBy: this._sortBy,
+      pageSize: this._pageSize
     } = params);
-    this.apiKey = apiKey;
-    this.query = query;
-    this.url = 'https://newsapi.org/v2/everything?'
+    this._apiKey = apiKey;
+    this._query = query;
+    this._url = 'https://newsapi.org/v2/everything?'
   }
   getNews() {
-    this.url = this.url
-      + `q=${this.query}&`
+    this._url = this._url
+      + `q=${this._query}&`
       + `from=${this._getDate().from}&`
       + `to=${this._getDate().to}&`
-      + `language=${this.language}&`
-      + `sortBy=${this.sortBy}&`
-      + `pageSize=${this.pageSize}`;
-    return fetch(this.url, {
+      + `language=${this._language}&`
+      + `sortBy=${this._sortBy}&`
+      + `pageSize=${this._pageSize}`;
+    return fetch(this._url, {
       method: 'GET',
       headers: {
-        Authorization: this.apiKey,
+        Authorization: this._apiKey,
       }
     })
       .then(res => {
