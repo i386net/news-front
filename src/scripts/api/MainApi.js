@@ -69,7 +69,6 @@ export default class MainApi {
         'Content-Type': 'application/json'
       }
     })
-      // .then(res => this.resParse(res))
       .then(res => {
         if(res.ok) return Promise.resolve({status: res.status})
         return Promise.reject(new Error(`Ошибка: ${res.statusText}`));
