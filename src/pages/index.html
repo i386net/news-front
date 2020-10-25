@@ -10,7 +10,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href="<%=require('../images/favicon.png').default%>" type="image/x-icon">
   <title>NewsExplorer</title>
-<!--  <link rel="stylesheet" href="../styles/index.css">-->
   <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>" />
 </head>
 <body>
@@ -29,7 +28,6 @@
             <li class="menu__item menu__main">
               <a href="./" class="menu__link">Главная</a>
             </li>
-<!--         <li class="menu__item"><a href="./articles.html" class="menu__link">Сохраненные статьи</a></li>-->
           </ul>
           <button class="signin button button_size_l button_theme_dark menu__button">
             <span class="auth-text">Авторизоваться</span>
@@ -48,13 +46,6 @@
             <a href="./" class="nav__link nav__link_theme_dark">Главная</a>
           </li>
           <li class="nav__item auth-button">
-<!--            <button class="signin button button_theme_dark button_size_m nav__button">-->
-<!--              <span class="auth"></span>-->
-<!--&lt;!&ndash;        delete this      <img src="<%=require('../images/logout.svg').default%>" alt="" class="button__ico">&ndash;&gt;-->
-<!--&lt;!&ndash;              <svg  class="button__ico button__ico_is-hidden" width="24" height="24" viewBox="0 0 24 24" fill="#000" xmlns="http://www.w3.org/2000/svg">&ndash;&gt;-->
-<!--&lt;!&ndash;                <path fill-rule="evenodd" clip-rule="evenodd" d="M10 6L6 6L6 18H10V20H6C4.89543 20 4 19.1046 4 18V6C4 4.89543 4.89543 4 6 4H10V6ZM17.5856 13L13.2927 17.1339L14.707 18.4958L21.4141 12.0371L14.707 5.57837L13.2927 6.9402L17.5856 11.0741H8V13H17.5856Z"/>&ndash;&gt;-->
-<!--&lt;!&ndash;              </svg>&ndash;&gt;-->
-<!--            </button>-->
           </li>
         </ul>
       </nav>
@@ -71,68 +62,17 @@
       </div>
     </div>
   </section>
-<!--articles_is-opened-->
+
   <section class="articles root__articles">
     <div class="articles__container">
       <h2 class="articles__title title title_size_m">Результаты поиска</h2>
       <div class="articles__grid">
-<!--        <div class="article">-->
-<!--          <img src="<%=require('../images/card.png').default%>" alt="На картинке изображены растения" class="article__img">-->
-<!--          <div class="article__button-container">-->
-<!--            <div class="article__button article__button_type_alert">-->
-<!--              <p class="article__tooltip">Войдите, чтобы сохранить статьи</p>-->
-<!--            </div>-->
-<!--            <button class="article__button article__button_type_mark"></button>-->
-<!--          </div>-->
-<!--          <div class="article__text-container">-->
-<!--            <p class="article__date">2 августа, 2019</p>-->
-<!--            <h3 class="title title_size_s article__title">Национальное достояние – парки</h3>-->
-<!--            <p class="article__text">-->
-<!--              В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.-->
-<!--            </p>-->
-<!--            <a href="" class="title title_size_xs article__link">ЛЕНТА.РУ</a>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="article">-->
-<!--          <img src="<%=require('../images/card.png').default%>" alt="На картинке изображены растения" class="article__img">-->
-<!--          <div class="article__button-container">-->
-<!--            <div class="article__button article__button_type_alert">-->
-<!--              <p class="article__tooltip">Войдите, чтобы сохранить статьи</p>-->
-<!--            </div>-->
-<!--            <button class="article__button article__button_type_mark"></button>-->
-<!--          </div>-->
-<!--          <div class="article__text-container">-->
-<!--            <p class="article__date">2 августа, 2019</p>-->
-<!--            <h3 class="title title_size_s article__title">Национальное достояние – парки</h3>-->
-<!--            <p class="article__text">-->
-<!--              В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.-->
-<!--            </p>-->
-<!--            <a href="" class="title title_size_xs article__link">ЛЕНТА.РУ</a>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="article">-->
-<!--          <img src="<%=require('../images/card.png').default%>" alt="На картинке изображены растения" class="article__img">-->
-<!--          <div class="article__button-container">-->
-<!--            <div class="article__button article__button_type_alert">-->
-<!--              <p class="article__tooltip">Войдите, чтобы сохранить статьи</p>-->
-<!--            </div>-->
-<!--            <button class="article__button article__button_type_mark"></button>-->
-<!--          </div>-->
-<!--          <div class="article__text-container">-->
-<!--            <p class="article__date">2 августа, 2019</p>-->
-<!--            <h3 class="title title_size_s article__title">Национальное достояние – парки</h3>-->
-<!--            <p class="article__text">-->
-<!--              В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.-->
-<!--            </p>-->
-<!--            <a href="" class="title title_size_xs article__link">ЛЕНТА.РУ</a>-->
-<!--          </div>-->
-<!--        </div>-->
       </div>
     </div>
 
    <button  class="button button_size_l button_theme_white articles__button">Показать еще</button>
   </section>
-<!--not-found_is-opened-->
+
   <section class="not-found ">
     <img src="<%=require('../images/not-found.png').default%>" alt="Ничего не найдено" class="not-found__img">
     <h3 class="title title_size_s">Ничего не найдено</h3>
@@ -199,7 +139,6 @@
           required
         />
         <span class="error-message error-message_is-opened error-email">
-<!--          Неправильный формат email-->
         </span>
         <span class="popup__subtitle">Пароль</span>
         <input
@@ -214,7 +153,6 @@
           required
         />
         <span class="error-message error-message_is-opened error-password">
-<!--          Неправильный формат пароля-->
         </span>
         <span class="error-message error-message_is-centered server-error">Test</span>
         <button type="submit" class="button button_size_xl button_state_active popup__button" disabled>Войти</button>
@@ -239,7 +177,6 @@
           required
         />
         <span id="error-email" class="error-message error-message_is-opened error-email">
-<!--          Неправильный формат email-->
         </span>
         <span class="popup__subtitle">Пароль</span>
         <input
@@ -254,7 +191,6 @@
           required
         />
         <span id="error-password" class="error-message error-message_is-opened error-password">
-<!--          Неправильный формат пароля-->
         </span>
 
         <span class="popup__subtitle">Имя</span>
@@ -270,10 +206,8 @@
           required
         />
         <span id="error-name" class="error-message error-message_is-opened error-name">
-<!--          Неправильный формат имени-->
         </span>
         <span class="error-message error-message_is-centered error-message_is-opened server-error" id="user-exists">
-<!--          Такой пользователь уже есть-->
         </span>
 
         <button id="register" type="submit" class="button button_size_xl popup__button button_state_active" disabled>Зарегистрироваться</button>
@@ -291,8 +225,6 @@
   </div>
 </div>
 
-<!--<script src="../scripts/classes/Popup.js"></script>-->
-<!--<script src="../scripts/index.js"></script>-->
 <script src="<%= htmlWebpackPlugin.files.js %>"></script>
 </body>
 </html>
