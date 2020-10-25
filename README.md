@@ -14,7 +14,7 @@
 ## Развертывание
 
 - Установить [Node.JS](https://nodejs.org/en/)
-- Скопировать себе ребозиторий: `git@github.com:i386net/news-front.git`
+- Скопировать себе репозиторий: `git@github.com:i386net/news-front.git`
 - Установить зависимости `npm install`
 
 ## Запуск
