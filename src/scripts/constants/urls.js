@@ -1,3 +1,4 @@
 export default {
-  backendUrl: 'https://api.news.i386.me',
+  // external: 'https://api.news.i386.me',
+  baseUrl: 'http://localhost:3000',
 }

@@ -8,7 +8,8 @@ import NewCard from './components/NewCard';
 import dom from './constants/dom';
 import copyrightDateHandler from './utils/copyrightDateHandler';
 import '../styles/index.css';
-const url = {baseUrl: 'http://localhost:3000'}; //todo move to constants
+import url from './constants/urls';
+
 const session = new Session;
 const api = new MainApi(url);
 const header = new Header({headerArea: dom.headerArea, api, session, theme: 'light'});

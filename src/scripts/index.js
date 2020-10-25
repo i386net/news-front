@@ -11,17 +11,16 @@ import dom from './constants/dom';
 import params from './constants/newsParams';
 import apiKey from './constants/apiKey';
 import copyrightDateHandler from './utils/copyrightDateHandler';
+import url from './constants/urls';
 import '../styles/index.css';
 
 const signupValidation = new Form(dom.signupForm);
 const signinValidation = new Form(dom.loginForm);
-// const searchValidation = new Form(dom.searchForm);
 const signinPopup = new Popup({popup: dom.signinPopup, form: signinValidation});
 const signupPopup = new Popup({popup: dom.signupPopup, form: signupValidation});
 const successPopup = new Popup({popup: dom.successPopup});
-// const menu = document.querySelector('.menu');
+
 let isLoggedIn = false;
-const url = {baseUrl: 'http://localhost:3000'}; //todo move to constants
 const api = new MainApi(url);
 const session = new Session;
 const header = new Header({
@@ -33,7 +32,6 @@ const header = new Header({
 });
 const showMoreButtonState = new ButtonState(dom.showMoreButton);
 const newsList = new NewsCardList({
-  // api,
   preloader: dom.preloader,
   notFoundContainer: dom.notFoundElement,
   cardsContainer: dom.articlesElement
