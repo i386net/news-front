@@ -1,0 +1,8 @@
+@import url('./_place/nav__links_place_header.css');
+@import url('./_place/nav__links_place_footer.css');
+
+.nav__links {
+  list-style-type: none;
+  padding-left: 0;
+
+}

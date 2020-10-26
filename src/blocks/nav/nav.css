@@ -1,0 +1,12 @@
+@import url('./__links/nav__links.css');
+@import url('./__link/nav__link.css');
+@import url('./__item/nav__item.css');
+@import url('./_place/nav_place_footer.css');
+
+
+.nav {
+  color: inherit;
+  align-items: center;
+  list-style-type: none;
+  padding-left: 0;
+}

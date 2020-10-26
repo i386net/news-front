@@ -1,0 +1,11 @@
+@import url('_type/article__button_type_alert.css');
+@import url('_type/article__button_type_mark.css');
+@import url('./_type/article__button_type_trash.css');
+
+.article__button {
+  border-radius: 8px;
+  background-color: #ffffff;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+}

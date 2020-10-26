@@ -1,0 +1,12 @@
+.nav_place_footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+  .nav_place_footer {
+    order: 1;
+    align-items: baseline;
+  }
+}

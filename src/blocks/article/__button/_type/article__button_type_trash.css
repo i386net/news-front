@@ -1,0 +1,11 @@
+.article__button_type_trash {
+  width: 40px;
+  margin-left: 5px;
+  background-image: url("../../../../images/trash-l.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.article__button_type_trash:hover {
+  background-image: url("../../../../images/trash-b.svg");
+}

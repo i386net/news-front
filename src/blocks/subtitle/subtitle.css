@@ -1,0 +1,18 @@
+@import url('./_theme/subtitle_theme_light.css');
+
+.subtitle {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .subtitle {
+    font-size: 14px;
+  }
+}
+
+/*@media (max-width: 767px) {*/
+/*  .subtitle {*/
+/*    !*font-size: 12px;*!*/
+/*  }*/
+/*}*/

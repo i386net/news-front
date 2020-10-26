@@ -1,0 +1,17 @@
+.author__img {
+  margin-left: 104px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .author__img {
+    margin: 40px 0 40px 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .author__img {
+    margin: 32px 24px 24px 24px;
+  }
+}

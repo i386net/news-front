@@ -1,0 +1,19 @@
+.articles__button {
+  font-size: 18px;
+  text-decoration: none;
+  color: #1A1B22;
+  line-height: 24px;
+  margin: 0 auto 80px;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .articles__button {
+    margin: 0 auto 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .articles__button {
+    margin: 0 auto 32px;
+  }
+}

@@ -1,0 +1,17 @@
+.nav__item {
+  list-style: none;
+  margin-left: 32px;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .nav__item {
+    margin-left: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav__item {
+    margin-left: 0;
+    margin-bottom: 38px;
+  }
+}

@@ -1,0 +1,10 @@
+.menu__list {
+  list-style: none;
+  padding: 0;
+  color: #FFFFFF;
+  font-size: 18px;
+  line-height: 56px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-left: 16px;
+}

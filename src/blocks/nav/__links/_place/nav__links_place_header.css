@@ -1,0 +1,12 @@
+.nav__links_place_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .nav__links_place_header {
+    display: none;
+  }
+}

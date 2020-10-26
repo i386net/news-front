@@ -1,0 +1,29 @@
+.article__button-container {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: row;
+}
+
+.article__button-container:hover .article__button_type_alert {
+  /*display: flex;*/
+  cursor: default;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .article__button-container {
+    top: 8px;
+    right: 8px;
+  }
+  .article__button-container:hover .article__button_type_alert {
+    /*display: none;*/
+    cursor: default;
+  }
+}
+
+@media (max-width: 767px) {
+  .article__button-container:hover .article__button_type_alert {
+    /*display: none;*/
+  }
+}

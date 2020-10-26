@@ -1,0 +1,19 @@
+@import "./__text/author__text.css";
+@import "./__text-container/author__text-container.css";
+@import "./__img/author__img.css";
+@import "./__title/author__title.css";
+
+.author {
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .author {
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
