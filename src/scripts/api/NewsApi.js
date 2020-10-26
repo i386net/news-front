@@ -7,10 +7,11 @@ export default class NewsApi {
     } = params);
     this._apiKey = apiKey;
     this._query = query;
-    this._url = 'https://newsapi.org/v2/everything?'
+    this._url = 'https://nomoreparties.co/news/v2/everything?';
   }
   getNews() {
     this._url = this._url
+      + `apiKey=${this._apiKey}&`
       + `q=${this._query}&`
       + `from=${this._getDate().from}&`
       + `to=${this._getDate().to}&`
@@ -19,9 +20,6 @@ export default class NewsApi {
       + `pageSize=${this._pageSize}`;
     return fetch(this._url, {
       method: 'GET',
-      headers: {
-        Authorization: this._apiKey,
-      }
     })
       .then(res => {
         if(!res.ok) {
